@@ -1,49 +1,56 @@
 <template>
-	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view>
-			<text class="title">{{title}}</text>
-		</view>
-	</view>
+	<layout>
+		<swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1500"></swiper>
+		<div class="bgmask"></div>
+		<panel />
+		<menus />
+		<group />
+		<zhuanti />
+		<banner />
+		<videos />
+	</layout>
 </template>
 
 <script>
-	export default {
-		data() {
-			return {
-				title: 'Hello'
-			}
-		},
-		onLoad() {
+import panel from './components/panel';
+import menus from './components/menus';
+import group from './components/group';
+import zhuanti from './components/zhuanti';
+import banner from './components/banner';
+import videos from './components/videos';
 
-		},
-		methods: {
+export default {
+	components: {
+		panel,
+		menus,
+		group,
+		zhuanti,
+		banner,
+		videos
+	},
+	data() {
+		return {};
+	},
+	onLoad() {
 
-		}
-	}
+	},
+	methods: {}
+};
 </script>
 
-<style>
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin: 200rpx auto 50rpx auto;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
-	}
+<style lang="scss" scoped>
+.swiper {
+	height: 320upx;
+	background-color: #000;
+}
+.bgmask {
+	width: 100%;
+	// background-color: #ff8300;
+	background:linear-gradient(#FF8300,#fff);
+	height: 50px;
+	position: absolute;
+	top: 300upx;
+	transform: translateZ(0);
+	z-index: 0;
+}
 </style>

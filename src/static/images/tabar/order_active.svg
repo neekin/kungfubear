@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>icon_home_defult备份</title>
+    <desc>Created with Sketch.</desc>
+    <g id="-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="首页2备份-3" transform="translate(-40.000000, -184.000000)">
+            <g id="-mockplus-" transform="translate(16.000000, 64.000000)">
+                <g id="展开菜单-首页">
+                    <g id="编组-8" transform="translate(24.000000, 119.000000)">
+                        <g id="编组-7">
+                            <g id="编组-6" transform="translate(0.000000, 1.000000)">
+                                <g id="编组-17">
+                                    <rect id="矩形" stroke="#FF8300" stroke-width="1.2" x="1.6" y="1.6" width="13.8" height="14.8" rx="4"></rect>
+                                    <path d="M9.25,1.8 L9.25,5.66213427 C9.25,5.93827664 9.47385763,6.16213427 9.75,6.16213427 C9.82748623,6.16213427 9.90391209,6.14412512 9.97324583,6.10952817 L10.68745,5.75314623 C10.9928834,5.60073754 11.3549595,5.6146533 11.647794,5.79005537 L12.2430738,6.14661621 C12.4799705,6.28851261 12.7870429,6.2114997 12.9289393,5.97460305 C12.9754402,5.89696963 13,5.80817152 13,5.71767688 L13,1.8 L13,1.8" id="路径-6" stroke="#FF8300" stroke-width="1.2" stroke-linejoin="round"></path>
+                                    <rect id="矩形" stroke="#FF8300" fill="#FEC790" x="4.5" y="8.7" width="8" height="1" rx="0.5"></rect>
+                                    <rect id="矩形备份" stroke="#FEC790" fill="#FEC790" x="4.5" y="11.9" width="5" height="1" rx="0.5"></rect>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

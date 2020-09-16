@@ -3,14 +3,63 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "熊小武"
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/wuguan/wuguan",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/yueke/yueke",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/gouke/gouke",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/my/my",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/wuguan/map",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/wuguan/wuguaninfo",
+            "style" : {}
+        }
+    ],
+
 	"globalStyle": {
-		"navigationBarTextStyle": "black",
+		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"backgroundColor": "#F8F8F8",
+		"app-plus": {  
+			"titleNView": false //禁用原生导航栏  
+		},
+		"navigationStyle": "custom"
+	},
+	"tabBar":{
+		"custom":true,
+		"list":[
+			{
+				"pagePath":"pages/index/index"
+			},
+			{
+				"pagePath":"pages/wuguan/wuguan"
+			},
+			{
+				"pagePath":"pages/yueke/yueke"
+			},
+			{
+				"pagePath":"pages/gouke/gouke"
+			},
+			{
+				"pagePath":"pages/my/my"
+			}
+		]
 	}
 }

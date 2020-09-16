@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="21px" viewBox="0 0 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>icon_tab_home_updown</title>
+    <desc>Created with Sketch.</desc>
+    <g id="-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="首页2备份-3" transform="translate(-29.000000, -1204.000000)">
+            <g id="-mockplus-" transform="translate(0.000000, 1197.000000)">
+                <g id="首页" transform="translate(0.000000, -1.000000)">
+                    <text fill="#FF8300" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal">
+                        <tspan x="29" y="39">首页</tspan>
+                    </text>
+                    <g id="编组-16" transform="translate(29.000000, 9.000000)" fill-rule="nonzero">
+                        <g id="编组-4" stroke="#FF8300" stroke-width="1.5">
+                            <path d="M17.868879,6.91258234 L10.7788984,1.03084405 C10.3326419,0.65638645 9.60335765,0.65638645 9.15618661,1.03162087 L2.09570526,6.93675007 L2.09570526,16.8912994 C2.09570526,17.5910675 2.84431592,18.25 3.58522105,18.25 L16.8722714,18.25 C17.4675933,18.25 17.868879,17.766018 17.868879,16.8912994 L17.868879,6.91258234 Z" id="路径"></path>
+                        </g>
+                        <path d="M10,12 C10.5522847,12 11,12.4477153 11,13 L11,17 L11,17 L9,17 L9,13 C9,12.4477153 9.44771525,12 10,12 Z" id="矩形" fill="#FF9022" opacity="0.5"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

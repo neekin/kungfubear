@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="54px" height="54px" viewBox="0 0 54 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>首页-购课</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="23" cy="23" r="23"></circle>
+        <filter x="-15.2%" y="-10.9%" width="130.4%" height="130.4%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.992156863   0 0 0 0 0.717647059   0 0 0 0 0.168627451  0 0 0 1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <path d="M4.89595996,0 L17.10404,0 C19.2318656,-1.39258557e-15 20.9872588,1.66585058 21.0985638,3.79076304 L21.7795162,16.790763 C21.8950745,18.9968776 20.2003439,20.8789654 17.9942294,20.9945237 C17.9245434,20.998174 17.8547739,21 17.7849924,21 L4.21500758,21 C2.00586858,21 0.215007579,19.209139 0.215007579,17 C0.215007579,16.9302185 0.216833624,16.860449 0.220483841,16.790763 L0.901436222,3.79076304 C1.01274116,1.66585058 2.76813437,2.16723206e-15 4.89595996,0 Z" id="path-4"></path>
+    </defs>
+    <g id="-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="首页2备份-3" transform="translate(-227.000000, -351.000000)">
+            <g id="首页-购课" transform="translate(231.000000, 353.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="蒙版">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-1"></use>
+                    <use fill="#FDB72B" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <circle id="椭圆形" fill="#FFFFFF" opacity="0.137021019" mask="url(#mask-2)" cx="35.25" cy="39.5" r="9.5"></circle>
+                <circle id="椭圆形备份" fill="#FFFFFF" opacity="0.14664" mask="url(#mask-2)" cx="42.25" cy="17.5" r="3.5"></circle>
+                <circle id="椭圆形备份-2" fill="#FFFFFF" opacity="0.164736793" mask="url(#mask-2)" cx="7.25" cy="37.5" r="3.5"></circle>
+                <g id="椭圆形" mask="url(#mask-2)">
+                    <g transform="translate(12.000000, 13.000000)">
+                        <mask id="mask-5" fill="white">
+                            <use xlink:href="#path-4"></use>
+                        </mask>
+                        <use id="蒙版" stroke="none" fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-4"></use>
+                        <g id="编组-10" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" mask="url(#mask-5)">
+                            <g transform="translate(4.000000, 6.000000)" id="编组-14">
+                                <g>
+                                    <path d="M1.92307692,2 C2.54840144,5.33333333 4.2224785,7 6.94530809,7 C9.66813768,7 11.378676,5.33333333 12.0769231,2" id="路径-41" stroke="#FDB72B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <circle id="椭圆形" fill="#FDB72B" cx="1.5" cy="1.5" r="1.5"></circle>
+                                    <circle id="椭圆形备份-3" fill="#FDB72B" cx="12.5" cy="1.5" r="1.5"></circle>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

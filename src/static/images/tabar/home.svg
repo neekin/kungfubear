@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>icon_home_updown</title>
+    <desc>Created with Sketch.</desc>
+    <g id="-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="首页2备份-3" transform="translate(-40.000000, -86.000000)" fill-rule="nonzero">
+            <g id="-mockplus-" transform="translate(16.000000, 64.000000)">
+                <g id="展开菜单-首页">
+                    <g id="icon_home_default" transform="translate(24.000000, 22.000000)">
+                        <g id="编组-4" transform="translate(1.000000, 1.000000)" stroke="#595959" stroke-width="1.2">
+                            <path d="M14.2951032,5.79707284 L8.61158834,0.833961356 C8.25841566,0.522013822 7.69038406,0.522013822 7.33649004,0.834606373 L1.6765642,5.81750703 L1.6765642,14.2242521 C1.6765642,14.8395182 2.28148731,15.4 2.86817684,15.4 L13.4978171,15.4 C13.9659035,15.4 14.2951032,14.9820624 14.2951032,14.2242521 L14.2951032,5.79707284 Z" id="路径"></path>
+                        </g>
+                        <path d="M9,11 C9.55228475,11 10,11.4477153 10,12 L10,15 L10,15 L8,15 L8,12 C8,11.4477153 8.44771525,11 9,11 Z" id="矩形" fill="#979797" opacity="0.5"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
