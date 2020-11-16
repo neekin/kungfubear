@@ -3,6 +3,7 @@
 	 <v-header />
 		 <scroll-view class='content' scroll-y="true">
 			 <slot>content</slot>
+			 <language :lang='getLang'/>
 		 </scroll-view>
 		 <!-- #ifndef MP-WEIXIN -->
 		   <v-tabar v-if='getIsTabBarPage'/>
@@ -13,15 +14,17 @@
 <script>
 import VHeader from './components/header.vue';
 import VTabar from './components/tabar.vue';
+import language from './components/language.vue';
 import { mapGetters  } from 'vuex'
 
 export default {
     computed:{
-		...mapGetters(['getIsTabBarPage'])
+		...mapGetters(['getIsTabBarPage','getLang'])
 	},
 	components:{
 		VHeader,
-		VTabar
+		VTabar,
+		language
 	}
 }
 </script>

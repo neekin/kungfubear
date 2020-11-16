@@ -88,6 +88,7 @@ export default {
 	border-top: 1upx solid rgba(0, 0, 0, 0.1);
 	box-sizing: border-box;
 	padding-top: 10upx;
+	background-color: #fff;
 	.btn {
 		height: 70upx;
 		display: grid;

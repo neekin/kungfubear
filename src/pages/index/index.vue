@@ -1,5 +1,6 @@
 <template>
 	<layout>
+		<!-- <button open-type="getUserInfo" @getuserinfo="bindgetuserinfo">登录</button> -->
 		<swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1500"></swiper>
 		<div class="bgmask"></div>
 		<panel />
@@ -18,7 +19,7 @@ import group from './components/group';
 import zhuanti from './components/zhuanti';
 import banner from './components/banner';
 import videos from './components/videos';
-
+import { wxLoginWithCallback } from '@/utils/wxlogin'
 export default {
 	components: {
 		panel,
@@ -34,7 +35,12 @@ export default {
 	onLoad() {
 
 	},
-	methods: {}
+	methods: {
+		bindgetuserinfo(e){
+			console.log(wxLoginWithCallback)
+			wxLoginWithCallback(e,null)
+		}
+	}
 };
 </script>
 

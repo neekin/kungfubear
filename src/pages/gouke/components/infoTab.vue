@@ -1,9 +1,10 @@
 <template>
 	<box>
 		<div class='infoTab'>
-			<div class='btn' :class='actIndex===0?"active":""' @click='actThis(0)'> <span>武馆介绍</span></div>
-			<div class='btn' :class='actIndex===1?"active":""' @click='actThis(1)'> <span>师父介绍</span></div>
-			<div class='btn' :class='actIndex===2?"active":""' @click='actThis(2)'> <span>武馆客服</span></div>
+			<div class='btn' :class='actIndex===0?"active":""' @click='actThis(0)'> <span>体适能</span></div>
+			<div class='btn' :class='actIndex===1?"active":""' @click='actThis(1)'> <span>功夫</span></div>
+			<div class='btn' :class='actIndex===2?"active":""' @click='actThis(2)'> <span>拳击</span></div>
+			<div class='btn' :class='actIndex===3?"active":""' @click='actThis(3)'> <span>私教课</span></div>
 		</div>
 	</box>
 </template>
@@ -36,7 +37,7 @@
 .infoTab{
 	display: flex;
 	width: 688upx;
-	height: 96upx;
+	height: 122upx;
 	background: #ffffff;
 	border-radius: 16upx;
 	box-shadow: 0px 0px 12upx 2upx rgba(176,176,176,0.5); 
@@ -47,7 +48,7 @@
 		display: flex;
 		justify-items: center;
 		align-items: center;
-		height: 96upx;
+		height: 122upx;
 		box-sizing: border-box;
 		font-size: 28upx;
 		font-family: PingFangSC, PingFangSC-Medium;

@@ -1,6 +1,6 @@
 <template>
 	<layout>
-		我的
+		<header></header>
 	</layout>
 </template>
 
@@ -15,5 +15,8 @@
 </script>
 
 <style lang="scss">
-
+header{
+	background-image: url(../../static/images/header/header.png);
+	height: 300upx;
+}
 </style>

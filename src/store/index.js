@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
 	state:{
 		currentPage:'',
+		lang:'zh',
 		tabBar:[
 			'pages/index/index',
 			'pages/wuguan/wuguan',
@@ -17,15 +18,22 @@ export default new Vuex.Store({
 	mutations:{
 		setCurrentPage(state,page){
 			state.currentPage = page
+		},
+		setLanguage(state,lang){
+			state.lang = lang
 		}
 	},
 	actions: {
 	  setCurrentPage({ commit }, page) {
 	    commit("setCurrentPage", page);
+	  },
+	  setLanguage({ commit }, lang) {
+	    commit("setLanguage", lang);
 	  }
 	},
 	getters: {
-	  getIsTabBarPage: state => state.tabBar.indexOf(state.currentPage)> -1
+	  getIsTabBarPage: state => state.tabBar.indexOf(state.currentPage)> -1,
+	  getLang : state => state.lang
 	}
   // state: {
   //   user_id: storage.getItem("user_id") || ""

@@ -18,6 +18,10 @@
             "path" : "pages/gouke/gouke",
             "style" : {}
         }
+		,{
+		    "path" : "pages/gouke/goukeinfo",
+		    "style" : {}
+		}
         ,{
             "path" : "pages/my/my",
             "style" : {}
