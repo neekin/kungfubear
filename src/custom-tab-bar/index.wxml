@@ -1,17 +1,25 @@
 <view class='tabBar'>
 	<cover-view class='cu-bar tabbar'>
-		<!-- <cover-view wx:for={{list}} wx:for-item="item"
-		wx:key="index" class="action {{ item.iconTopClass }}
-		{{ selected==index?'text-green':''}} "
-		catchtap='switchTab' data-url="{{item.pagePath}}"
-		data-path="{{item.pagePath}}" data-index="{{index}}"
+		<cover-view class='btn' 
+		wx:for="{{list}}"
+		wx:for-item="item" 
+		wx:key="index"
+		catchtap='switchTab' 
+		data-url="{{item.pagePath}}"
+		data-path="{{item.pagePath}}" 
+		data-index="{{index}}"
 		>
-		<cover-view class='iconf {{item.iconClass}}'></cover-view>
-		<conver>{{item.text}}</conver>
-		</cover-view> -->
-		<cover-view class='btn {{ selected==index?"active":""}} ' wx:for="{{list}}" wx:for-item="item" wx:key="index">
-		<cover-view>
-			<cover-image class='img' src='{{item.iconPath}}'></cover-image>
+		<cover-view class='{{ selected==index?"active":""}}'>
+			<cover-image 
+			    wx:if="{{selected==index}}" 
+				class='img' 
+				src='{{item.iconGifPath}}'>
+			</cover-image>
+			<cover-image 
+				wx:else 
+				class='img' 
+				src='{{item.iconPath}}'
+			></cover-image>
 			{{item.text}}
 		</cover-view>
 		</cover-view>

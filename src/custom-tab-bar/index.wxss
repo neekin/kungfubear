@@ -6,6 +6,7 @@
 	border-top: 1rpx solid rgba(0, 0, 0, 0.1);
 	box-sizing: border-box;
 	padding-top: 10rpx;
+	background-color: #fff;
 }
 .tabbar .btn {
 		height: 70rpx;
@@ -17,9 +18,10 @@
 		text-align: left;
 		color: rgba(0, 0, 0, 0.5);
 	}
+	.tabbar .active.btn{
+		color: #ff8300;
+	}
 .tabbar .btn .img{
-
 		width: 42rpx;
 		height: 42rpx;
-	
 }

@@ -18,6 +18,14 @@
 				 selected:1
 			 }
 		 },
+		 onShow(){
+			 if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+			      this.getTabBar().setData({
+			        selected: 3  //数字是当前页面在tabbar的索引,如我的查询页索引是2，因此这边为2，同理首页就为0，审批页面为1
+			      })
+			    }	
+		 }
+		 ,
 		 methods:{
 			selectThis(index){
 				console.log(11)
