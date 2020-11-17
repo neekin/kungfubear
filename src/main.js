@@ -5,6 +5,7 @@ Vue.config.productionTip = false
 App.mpType = 'app'
 import layout from 'layout/layout'
 import box from 'layout/box'
+import './components'
 Vue.component('layout', layout)
 Vue.component('box', box)
 Vue.mixin({

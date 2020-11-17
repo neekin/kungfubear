@@ -1,5 +1,5 @@
 <template>
-	<div class="panel" :class='{"selected":selected}' @click.stop='select'>
+	<div class="panel" :class='{"selected":selected}'>
 		<div class="leftbox">
 			<div class="title">
 				熊小武青少年武馆
@@ -12,8 +12,8 @@
 			</div>
 		</div>
 		<div class="rightbox">
-			<navigator url="/pages/gouke/goukeinfo" class='btn'>
-					去购课
+			<navigator :url="url" class='btn'>
+					{{text}}
 			</navigator>
 		</div>
 	</div>
@@ -21,14 +21,16 @@
 
 <script>
 	export default {
-		data() {
-			return {
-				selected:true
-			};
-		},
-		methods:{
-			select(){
-				this.selected = !this.selected;
+		props:{
+			selected:{
+				type:Boolean,
+				default:false
+			},
+			text:{
+				default:"去购课"
+			},
+			url:{
+				default:'/pages/gouke/goukeinfo'
 			}
 		}
 	}
@@ -48,6 +50,7 @@
 	}
 	.rightbox{
 		.btn{
+			display: grid;
 			 opacity: 1;
 		}
 	}
@@ -108,7 +111,6 @@
 		display: grid;
 		place-items: center right;
 		flex:1;
-		// background-color: #ccc;
 		.btn{
 		    width: 144upx;
 			transition: opacity 0.5s;
@@ -118,14 +120,13 @@
 			background: #ff8300;
 			border-radius: 200upx;
 			box-shadow: 0px 4upx 8upx 0upx #ff9022; 
-
 			font-size: 28upx;
 			font-family: PingFangSC, PingFangSC-Medium;
 			font-weight: 500;
 			text-align: left;
 			color: #ffffff;
 			text-decoration: none;
-			display: grid;
+			display: none;
 			place-items: center;
 		}
 	}

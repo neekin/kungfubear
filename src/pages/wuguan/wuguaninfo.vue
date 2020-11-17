@@ -21,12 +21,12 @@
 					<p>11:00-24:00</p>
 				</div>
 				<div class="btns">
-					<div class="btn">
+					<div class="btn" @click='goPage("/pages/gouke/gouke")'>
 						<span class="iconfont iconclock"></span>
 						约课
 					</div>
 					<div class="btn">
-						<span class="iconfont icongouwuche"></span>
+						<span class="iconfont icongouwuche" @click='goPage("/pages/yueke/yueke")'></span>
 						购课
 					</div>
 				</div>
@@ -44,13 +44,25 @@
 				</section>
 				<section class="list" v-if="actIndex === 1">
 					<div class="item" @click='setShifu'>
-						<img src="" alt="" />
+						<img src="/static/images/wuguan/李小龙.jpg" alt="">
 						<div class="name">李小龙</div>
 					</div>
-					<div class="item"></div>
-					<div class="item"></div>
-					<div class="item"></div>
-					<div class="item"></div>
+					<div class="item" @click='setShifu'>
+						<img src="/static/images/wuguan/李小龙.jpg" alt="">
+						<div class="name">李小龙</div>
+					</div>
+					<div class="item" @click='setShifu'>
+						<img src="/static/images/wuguan/李小龙.jpg" alt="">
+						<div class="name">李小龙</div>
+					</div>
+					<div class="item" @click='setShifu'>
+						<img src="/static/images/wuguan/李小龙.jpg" alt="">
+						<div class="name">李小龙</div>
+					</div>
+					<div class="item" @click='setShifu'>
+						<img src="/static/images/wuguan/李小龙.jpg" alt="">
+						<div class="name">李小龙</div>
+					</div>
 				</section>
 				<section class="kefu" v-if="actIndex === 2">
 					<div class="qrcode">
@@ -60,19 +72,18 @@
 				</section>
 			</content>
 		</box>
-		<shifuInfo v-model='shifu'/>
+		<master-detail  v-model='shifu'/>
 	</layout>
 </template>
 
 <script>
 import banner from './components/banner.vue';
 import infoTab from './components/infoTab.vue';
-import shifuInfo from './components/shifuinfo.vue';
+
 export default {
 	components: {
 		banner,
-		infoTab,
-		shifuInfo
+		infoTab
 	},
 	data() {
 		return {
@@ -83,6 +94,11 @@ export default {
 	methods:{
 		setShifu(){
 			this.shifu = {}
+		},
+		goPage(url){
+			uni.switchTab({
+				url:url
+			})
 		}
 	}
 };
