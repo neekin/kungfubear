@@ -123,6 +123,7 @@ export default {
 				img {
 					position: absolute;
 					width: 100%;
+					height:100%;
 				}
 				span {
 					width: 100%;

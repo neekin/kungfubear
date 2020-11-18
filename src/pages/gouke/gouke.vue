@@ -8,6 +8,7 @@
 				<wuguan-card :selected="selected===3"  @click.native='selectThis(3)'/>
 				<wuguan-card :selected="selected===4"  @click.native='selectThis(4)'/>
 			</box>
+			<phoney-tab/>
 	</layout>
 </template>
 
@@ -19,8 +20,9 @@
 			 }
 		 },
 		 onShow(){
-			 if (typeof this.getTabBar === 'function' && this.getTabBar()) {
-			      this.getTabBar().setData({
+			 const page = this.$mp.page  
+			 if (typeof page.getTabBar === 'function' && page.getTabBar()) {
+			      page.getTabBar().setData({
 			        selected: 3  //数字是当前页面在tabbar的索引,如我的查询页索引是2，因此这边为2，同理首页就为0，审批页面为1
 			      })
 			    }	
@@ -36,15 +38,13 @@
 </script>
 
 <style lang="scss" scoped>
-.lay{
-	background-color: #ccc;
-}
 .map{
 	height:600upx;
 	width: 100%;
 }
 .box1{
 	padding-top: 0;
+	background-color: #f7f7f7;
 }
 
 </style>

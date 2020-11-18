@@ -16,6 +16,7 @@
 		top:42upx;
 		img{
 			width: 16upx;
+			height: 26upx;
 			position: absolute;
 			top:0;
 			left:0;

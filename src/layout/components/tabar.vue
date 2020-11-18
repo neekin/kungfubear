@@ -5,16 +5,15 @@
 			首页
 		</div>
 		<div class="btn" v-else @click='goPage("/pages/index/index")'>
-			<img src="/static/images/tabar/home.svg" alt="" />
+			<img src="/static/images/tabar/home.png" alt="" />
 			首页
 		</div>
-
 		<div class="btn active" v-if="wuguan">
 			<img src="/static/images/tabar/shop_act.gif" alt="" />
 			武馆
 		</div>
 		<div class="btn" v-else @click='goPage("/pages/wuguan/wuguan")'>
-			<img src="/static/images/tabar/shop.svg" alt="" />
+			<img src="/static/images/tabar/shop.png" alt="" />
 			武馆
 		</div>
 
@@ -23,7 +22,7 @@
 			约课
 		</div>
 		<div class="btn" v-else @click='goPage("/pages/yueke/yueke")'>
-			<img src="/static/images/tabar/clock.svg" alt="" />
+			<img src="/static/images/tabar/clock.png" alt="" />
 			约课
 		</div>
 
@@ -32,7 +31,7 @@
 			购课
 		</div>
 		<div class="btn" v-else @click='goPage("/pages/gouke/gouke")'>
-			<img src="/static/images/tabar/order.svg" alt="" />
+			<img src="/static/images/tabar/order.png" alt="" />
 			购课
 		</div>
 
@@ -41,7 +40,7 @@
 			我的
 		</div>
 		<div class="btn" v-else @click='goPage("/pages/my/my")'>
-			<img src="/static/images/tabar/bear.svg" alt="" />
+			<img src="/static/images/tabar/bear.png" alt="" />
 			我的
 		</div>
 	</div>

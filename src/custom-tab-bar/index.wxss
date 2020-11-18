@@ -18,9 +18,9 @@
 		text-align: left;
 		color: rgba(0, 0, 0, 0.5);
 	}
-	.tabbar .active.btn{
-		color: #ff8300;
-	}
+.tabbar .active{
+	color: #ff8300;
+}
 .tabbar .btn .img{
 		width: 42rpx;
 		height: 42rpx;

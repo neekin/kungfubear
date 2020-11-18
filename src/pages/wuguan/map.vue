@@ -5,6 +5,7 @@
 			<map name=""></map>
 			<map-card />
 		</div>
+		<phoney-tab/>
 	</layout>
 </template>
 

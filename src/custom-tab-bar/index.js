@@ -12,25 +12,25 @@ Component({
 			{
 				pagePath: '/pages/wuguan/wuguan',
 				iconPath: '/static/images/tabar/shop.svg',
-				iconGifPath: "/static/images/tabar/home_act.gif",
+				iconGifPath: "/static/images/tabar/shop_act.gif",
 				text: '武馆'
 			},
 			{
 				pagePath: '/pages/yueke/yueke',
 				iconPath: '/static/images/tabar/clock.svg',
-				iconGifPath: "/static/images/tabar/home_act.gif",
+				iconGifPath: "/static/images/tabar/clock_act.gif",
 				text: '约课'
 			},
 			{
 				pagePath: '/pages/gouke/gouke',
 				iconPath: '/static/images/tabar/order.svg',
-				iconGifPath: "/static/images/tabar/home_act.gif",
+				iconGifPath: "/static/images/tabar/order_act.gif",
 				text: '购课'
 			},
 			{
 				pagePath: '/pages/my/my',
 				iconPath: '/static/images/tabar/bear.svg',
-				iconGifPath: "/static/images/tabar/home_act.gif",
+				iconGifPath: "/static/images/tabar/bear_act.gif",
 				text: '我的'
 			}
 		]

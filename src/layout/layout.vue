@@ -33,6 +33,7 @@ export default {
 		display: flex;
 		height:100vh;
 		flex-direction: column;
+		background-color: #f7f7f7;
 		.content{
 			flex:1;
 			overflow: hidden;

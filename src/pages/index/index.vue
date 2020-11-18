@@ -3,12 +3,13 @@
 		<!-- <button open-type="getUserInfo" @getuserinfo="bindgetuserinfo">登录</button> -->
 		<swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1500"></swiper>
 		<div class="bgmask"></div>
-		 <panel />
+		<panel />
 		<menus />
 		<group />
 		<zhuanti />
 		<banner />
-		<videos /> 
+		<videos />
+		<phoney-tab/>
 	</layout>
 </template>
 
@@ -20,6 +21,7 @@ import zhuanti from './components/zhuanti';
 import banner from './components/banner';
 import videos from './components/videos';
 import { wxLoginWithCallback } from '@/utils/wxlogin';
+import {setPage } from '@/utils/page'
 export default {
 	components: {
 		panel,
@@ -33,9 +35,16 @@ export default {
 		return {};
 	},
 	onShow() {
-		if (typeof this.getTabBar === 'function' && this.getTabBar()) {
-			this.getTabBar().setData({
-				selected: 0 //数字是当前页面在tabbar的索引,如我的查询页索引是2，因此这边为2，同理首页就为0，审批页面为1
+		// const page = this.$mp.page;
+		// if (typeof page.getTabBar === 'function' && page.getTabBar()) {
+		// 	page.getTabBar().setData({
+		// 		selected: 0 //数字是当前页面在tabbar的索引,如我的查询页索引是2，因此这边为2，同理首页就为0，审批页面为1
+		// 	});
+		// }
+		const page = this.$mp.page;
+		if (typeof page.getTabBar === 'function' && page.getTabBar()) {
+			page.getTabBar().setData({
+				selected: 0
 			});
 		}
 	},

@@ -1,9 +1,9 @@
 <template>
 	<box>
 		<div class='infoTab'>
-			<div class='btn' :class='actIndex===0?"active":""' @click='actThis(0)'> <span>武馆介绍</span></div>
-			<div class='btn' :class='actIndex===1?"active":""' @click='actThis(1)'> <span>师父介绍</span></div>
-			<div class='btn' :class='actIndex===2?"active":""' @click='actThis(2)'> <span>武馆客服</span></div>
+			<div class='btn' :class='value===0?"active":""' @click='actThis(0)'> <span>武馆介绍</span></div>
+			<div class='btn' :class='value===1?"active":""' @click='actThis(1)'> <span>师父介绍</span></div>
+			<div class='btn' :class='value===2?"active":""' @click='actThis(2)'> <span>武馆客服</span></div>
 		</div>
 	</box>
 </template>
@@ -11,22 +11,17 @@
 <script>
 	export default {
 		props:{
-			actIndex:{
+			value:{
 				default: 0
 			}
 		},
 		model:{
-			prop:'actIndex',
-			event:'update'
-		},
-		data() {
-			return {
-				
-			};
+			prop:'value',
+			event:'input'
 		},
 		methods:{
 			actThis(index){
-				this.$emit('update',index)
+				this.$emit('input',index)
 			}
 		}
 	}

@@ -1,7 +1,7 @@
 <template>
 	<layout class='lay'>
        <wuguan-header />
-	  <info-tab v-model="actIndex" class='v-info-tab'/>
+	  <info-tab v-model="actIndex" :value='actIndex' @input="(value)=>actIndex=value" class='v-info-tab'/>
 	  <box>
 		  <div class="course">
                <div class="row">

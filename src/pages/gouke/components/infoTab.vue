@@ -1,10 +1,10 @@
 <template>
 	<box>
 		<div class='infoTab'>
-			<div class='btn' :class='actIndex===0?"active":""' @click='actThis(0)'> <span>体适能</span></div>
-			<div class='btn' :class='actIndex===1?"active":""' @click='actThis(1)'> <span>功夫</span></div>
-			<div class='btn' :class='actIndex===2?"active":""' @click='actThis(2)'> <span>拳击</span></div>
-			<div class='btn' :class='actIndex===3?"active":""' @click='actThis(3)'> <span>私教课</span></div>
+			<div class='btn' :class='value===0?"active":""' @click='actThis(0)'> <span>体适能</span></div>
+			<div class='btn' :class='value===1?"active":""' @click='actThis(1)'> <span>功夫</span></div>
+			<div class='btn' :class='value===2?"active":""' @click='actThis(2)'> <span>拳击</span></div>
+			<div class='btn' :class='value===3?"active":""' @click='actThis(3)'> <span>私教课</span></div>
 		</div>
 	</box>
 </template>
@@ -12,13 +12,13 @@
 <script>
 	export default {
 		props:{
-			actIndex:{
+			value:{
 				default: 0
 			}
 		},
 		model:{
-			prop:'actIndex',
-			event:'update'
+			prop:'value',
+			event:'input'
 		},
 		data() {
 			return {
@@ -27,7 +27,7 @@
 		},
 		methods:{
 			actThis(index){
-				this.$emit('update',index)
+				this.$emit('input',index)
 			}
 		}
 	}

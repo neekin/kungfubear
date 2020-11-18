@@ -21,18 +21,26 @@
 					<p>11:00-24:00</p>
 				</div>
 				<div class="btns">
-					<div class="btn" @click='goPage("/pages/gouke/gouke")'>
+					<div class="btn" @click="goPage('/pages/gouke/gouke')">
 						<span class="iconfont iconclock"></span>
 						约课
 					</div>
 					<div class="btn">
-						<span class="iconfont icongouwuche" @click='goPage("/pages/yueke/yueke")'></span>
+						<span class="iconfont icongouwuche" @click="goPage('/pages/yueke/yueke')"></span>
 						购课
 					</div>
 				</div>
 			</div>
 		</box>
-		<info-tab v-model="actIndex" />
+		<info-tab
+			v-model="actIndex"
+			:value="actIndex"
+			@input="
+				value => {
+					actIndex = value;
+				}
+			"
+		/>
 		<box class="box1">
 			<content>
 				<section class="text" v-if="actIndex === 0">
@@ -43,24 +51,24 @@
 					</div>
 				</section>
 				<section class="list" v-if="actIndex === 1">
-					<div class="item" @click='setShifu'>
-						<img src="/static/images/wuguan/李小龙.jpg" alt="">
+					<div class="item" @click="setShifu">
+						<img src="/static/images/wuguan/李小龙.jpg" alt="" />
 						<div class="name">李小龙</div>
 					</div>
-					<div class="item" @click='setShifu'>
-						<img src="/static/images/wuguan/李小龙.jpg" alt="">
+					<div class="item" @click="setShifu">
+						<img src="/static/images/wuguan/李小龙.jpg" alt="" />
 						<div class="name">李小龙</div>
 					</div>
-					<div class="item" @click='setShifu'>
-						<img src="/static/images/wuguan/李小龙.jpg" alt="">
+					<div class="item" @click="setShifu">
+						<img src="/static/images/wuguan/李小龙.jpg" alt="" />
 						<div class="name">李小龙</div>
 					</div>
-					<div class="item" @click='setShifu'>
-						<img src="/static/images/wuguan/李小龙.jpg" alt="">
+					<div class="item" @click="setShifu">
+						<img src="/static/images/wuguan/李小龙.jpg" alt="" />
 						<div class="name">李小龙</div>
 					</div>
-					<div class="item" @click='setShifu'>
-						<img src="/static/images/wuguan/李小龙.jpg" alt="">
+					<div class="item" @click="setShifu">
+						<img src="/static/images/wuguan/李小龙.jpg" alt="" />
 						<div class="name">李小龙</div>
 					</div>
 				</section>
@@ -72,7 +80,7 @@
 				</section>
 			</content>
 		</box>
-		<master-detail  v-model='shifu'/>
+		<master-detail v-model="shifu" :master='shifu' @update="(value)=>shifu=value" />
 	</layout>
 </template>
 
@@ -88,17 +96,17 @@ export default {
 	data() {
 		return {
 			actIndex: 1,
-			shifu:null
+			shifu: null
 		};
 	},
-	methods:{
-		setShifu(){
-			this.shifu = {}
+	methods: {
+		setShifu() {
+			this.shifu = {};
 		},
-		goPage(url){
+		goPage(url) {
 			uni.switchTab({
-				url:url
-			})
+				url: url
+			});
 		}
 	}
 };
