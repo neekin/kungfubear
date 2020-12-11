@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="42px" height="18px" viewBox="0 0 42 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>标签-私教课</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-3.9%" y="-7.5%" width="107.9%" height="114.9%" filterUnits="objectBoundingBox" id="filter-1">
+            <feMorphology radius="0.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="0" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.69140625   0 0 0 0 0.69140625   0 0 0 0 0.69140625  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="熊小武" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="我的-约课记录" transform="translate(-32.000000, -383.000000)">
+            <rect fill="#F7F7F7" x="0" y="0" width="375" height="813"></rect>
+            <g id="-mockplus-" transform="translate(16.000000, 363.000000)">
+                <g id="约课日程备份" filter="url(#filter-1)">
+                    <g id="编组" transform="translate(16.000000, 20.000000)">
+                        <g id="编组-2">
+                            <rect id="矩形" stroke="#FF8300" fill-opacity="0.2" fill="#FF9022" x="0.5" y="0.5" width="41" height="17" rx="8.5"></rect>
+                            <text id="私教课" font-family="PingFangSC-Medium, PingFang SC" font-size="10" font-weight="400" letter-spacing="-0.200000001" fill="#FF8300">
+                                <tspan x="6.3" y="13">私教课</tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

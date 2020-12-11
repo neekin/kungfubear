@@ -1,36 +1,169 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/index/index",
+			"path": "pages/home/index",
 			"style": {
-				"navigationBarTitleText": "熊小武"
+				"navigationBarTitleText": "熊小武",
+				 "enablePullDownRefresh": false,
+				 "disableScroll": true
 			}
 		}, {
 			"path": "pages/wuguan/wuguan",
-			"style": {}
+			"style": {
+				"disableScroll": true
+			}
 		}, {
 			"path": "pages/yueke/yueke",
-			"style": {}
+			"style": {
+				"disableScroll": true
+			}
 		}, {
 			"path": "pages/yueke/yuekeinfo",
-			"style": {}
+			"style": {
+				"disableScroll": true
+			}
 		}, {
 			"path": "pages/gouke/gouke",
-			"style": {}
+			"style": {
+				"disableScroll": true
+			}
 		}, {
 			"path": "pages/gouke/goukeinfo",
 			"style": {}
 		}, {
 			"path": "pages/my/my",
-			"style": {}
+			"style": {
+				"disableScroll": true
+			}
 		}, {
 			"path": "pages/wuguan/map",
-			"style": {}
+			"style": {
+				"disableScroll": true
+			}
 		}, {
 			"path": "pages/wuguan/wuguaninfo",
-			"style": {}
+			"style": {
+				"disableScroll": true
+			}
 		}
-	],
+	    ,{
+            "path" : "pages/my/subpages/myorder",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+               "disableScroll": true
+            }
+            
+        }
+        ,{
+            "path" : "pages/my/subpages/yueke",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+               "disableScroll": true
+            }
+            
+        }
+        ,{
+            "path" : "pages/my/subpages/fankui",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+               "disableScroll": true
+            }
+            
+        }
+        ,{
+            "path" : "pages/my/subpages/jilu",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+               "disableScroll": true
+            }
+            
+        }
+        ,{
+            "path" : "pages/my/submainpages/tuiguang",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+               "disableScroll": true
+            }
+            
+        }
+        ,{
+            "path" : "pages/my/submainpages/youhuiquan",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "disableScroll": true
+            }
+            
+        }
+        ,{
+            "path" : "pages/my/submainpages/jiatingzu",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                 "disableScroll": true
+            }
+            
+        }
+        ,{
+            "path" : "pages/my/submainpages/kefu",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+              "disableScroll": true
+            }
+            
+        }
+        ,{
+            "path" : "pages/my/submainpages/about",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+              "disableScroll": true
+            }
+            
+        }
+        ,{
+            "path" : "pages/my/submainpages/tousu",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+               "disableScroll": true
+            }
+            
+        }
+        ,{
+            "path" : "pages/my/submainpages/kaoji",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+             "disableScroll": true
+            }
+            
+        }
+        ,{
+            "path" : "pages/my/submainpages/jincai",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+              "disableScroll": true
+            }
+            
+        }
+        ,{
+            "path" : "pages/my/submainpages/yuangong",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "disableScroll": true
+            }
+            
+        }
+    ],
 
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
@@ -38,6 +171,7 @@
 		 "navigationBarBackgroundColor": "#f83e06",
 		"backgroundColor": "#F8F8F8",
 		"app-plus": {
+			"bounce":"none",  // 禁止下拉回弹
 			"titleNView": false //禁用原生导航栏  
 		},
 		"navigationStyle": "custom",
@@ -46,7 +180,7 @@
 	"tabBar": {
 		"custom": true,
 		"list": [{
-				"pagePath": "pages/index/index",
+				"pagePath": "pages/home/index",
 				"iconPath": "/static/images/tabar/home.png",
 				"selecteIconPath": "/static/images/tabar/home_act.gif",
 				"text": "首页"

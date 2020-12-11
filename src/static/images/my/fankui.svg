@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="23px" height="22px" viewBox="0 0 23 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>课后反馈-图标</title>
+    <desc>Created with Sketch.</desc>
+    <g id="熊小武" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="我的备份-7" transform="translate(-306.000000, -167.000000)">
+            <g id="编组-24" transform="translate(16.000000, 147.000000)">
+                <g id="课后反馈" transform="translate(290.000000, 20.000000)">
+                    <path d="M19,0 C21.209139,1.55629733e-15 23,1.790861 23,4 L23,14.1948753 C23,16.4040143 21.209139,18.1948753 19,18.1948753 L10.002,18.194 L2.90214877,21.782223 C1.91633557,22.280466 0.713270297,21.8852123 0.215027286,20.899399 C0.0736558828,20.6196845 1.77635684e-15,20.3106607 1.77635684e-15,19.9972503 L3.55271368e-15,11.1190904 L0,4 C-2.705415e-16,1.790861 1.790861,4.05812251e-16 4,0 L19,0 Z" id="形状结合" fill="#FF8300"></path>
+                    <rect id="矩形" fill="#FFFFFF" x="5" y="5" width="13" height="2" rx="1"></rect>
+                    <rect id="矩形备份-3" fill="#FFFFFF" opacity="0.498674665" x="5" y="11" width="8" height="2" rx="1"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

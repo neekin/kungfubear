@@ -15,7 +15,7 @@
 			<img src="/static/images/tabar/home_active.svg" alt="" />
 			首页
 		</div>
-		<div class="btn" v-else @click='goPage("/pages/index/index")'>
+		<div class="btn" v-else @click='goPage("/pages/home/index")'>
 			<img src="/static/images/tabar/home.svg" alt="" />
 			首页
 		</div>

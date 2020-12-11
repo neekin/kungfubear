@@ -16,7 +16,7 @@ export default {
     } else {
       let val = this.getStorage();
       val[key] = value;
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(val));
+      uni.setStorageSync(STORAGE_KEY, JSON.stringify(val));
     }
   },
   getItem(key, module_name) {
@@ -28,7 +28,7 @@ export default {
     return this.getStorage()[key];
   },
   getStorage() {
-    let result = window.localStorage.getItem(STORAGE_KEY) || "{}";
+    let result = uni.getStorageSync(STORAGE_KEY) || "{}";
 
     return JSON.parse(result);
   },
@@ -39,6 +39,6 @@ export default {
     } else {
       delete val[key];
     }
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(val));
+    uni.setStorageSync(STORAGE_KEY, JSON.stringify(val));
   }
 };

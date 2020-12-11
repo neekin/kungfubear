@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="19px" height="18px" viewBox="0 0 19 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>投诉建议</title>
+    <desc>Created with Sketch.</desc>
+    <g id="熊小武" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="我的备份-7" transform="translate(-293.000000, -507.000000)">
+            <rect fill="#F7F7F7" x="0" y="0" width="375" height="747"></rect>
+            <g id="编组-9" transform="translate(293.000000, 507.000000)" stroke="#56B1FF" stroke-opacity="0.913243007" stroke-width="1.5">
+                <path d="M16,0.75 L3,0.75 C1.75735931,0.75 0.75,1.75735931 0.75,3 L0.75,16.1835605 C0.75,16.3216316 0.861928813,16.4335605 0.957570217,16.4347616 L1.02824447,16.4319604 C1.06571973,16.4276994 1.10178207,16.4150078 1.13364661,16.3948389 L4.52154915,14.25 L16,14.25 C17.2426407,14.25 18.25,13.2426407 18.25,12 L18.25,3 C18.25,1.75735931 17.2426407,0.75 16,0.75 Z" id="形状结合"></path>
+                <rect id="矩形" x="4.75" y="5.75" width="8.5" height="1" rx="0.5"></rect>
+                <rect id="矩形" x="4.75" y="9.75" width="4.5" height="1" rx="0.5"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -20,7 +20,9 @@
 				class='img' 
 				src='{{item.iconPath}}'
 			></cover-image>
-			{{item.text}}
+		<cover-view>
+				{{item.text}}
+		</cover-view>
 		</cover-view>
 		</cover-view>
 	</cover-view>

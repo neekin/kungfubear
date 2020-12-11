@@ -1,14 +1,19 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import storage from "../storage";
+import home from './home'
 
 Vue.use(Vuex);
 export default new Vuex.Store({
+	modules: {
+	    home
+	  },
 	state:{
+		Authorization: storage.getItem('Authorization') ? storage.getItem('Authorization') : '',
 		currentPage:'',
-		lang:'zh',
+		lang:'en',
 		tabBar:[
-			'pages/index/index',
+			'pages/home/index',
 			'pages/wuguan/wuguan',
 			'pages/gouke/gouke',
 			'pages/yueke/yueke',

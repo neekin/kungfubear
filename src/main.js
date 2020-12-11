@@ -3,18 +3,35 @@ import App from './App'
 import store from "./store";
 Vue.config.productionTip = false
 App.mpType = 'app'
-import layout from 'layout/layout'
-import box from 'layout/box'
+// 通用组件
 import wuguanHeader from './components/wuguanHeader'
 import wuguanCard from './components/wuguanCard'
 import masterDetail from './components/masterDetail'
+import actionsheet from './components/actionsheet'
+import tabs from './components/tabs'
+
+// 布局组件
+import layout from 'layout/layout'
+import box from 'layout/box'
 import phoneyTab from './layout/components/phoneyTab'
+import panel from 'layout/components/boxpanel'
+import whitepanel from 'layout/components/whitepanel'
+
+import api from './utils/api'
+
 Vue.component('layout', layout)
 Vue.component('box', box)
+Vue.component('phoneyTab',  phoneyTab)
+Vue.component('panel', panel)
+Vue.component('whitepanel', whitepanel)
+
+
 Vue.component('wuguanHeader',  wuguanHeader)
 Vue.component('wuguanCard',  wuguanCard)
 Vue.component('masterDetail',  masterDetail)
-Vue.component('phoneyTab',  phoneyTab)
+Vue.component('tabs',  tabs)
+Vue.component('actionsheet',  actionsheet)
+
 
 
 Vue.mixin({
@@ -29,6 +46,8 @@ Vue.mixin({
 	     
   }
 })
+
+Vue.prototype.$api = api
 const app = new Vue({
     ...App,
 	store
