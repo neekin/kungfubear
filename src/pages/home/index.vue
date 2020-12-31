@@ -54,6 +54,7 @@ export default {
 	methods: {
 		async init() {
 			this.homeData = await this.$api.home.Index();
+			
 		}
 	}
 };

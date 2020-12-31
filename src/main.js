@@ -9,6 +9,7 @@ import wuguanCard from './components/wuguanCard'
 import masterDetail from './components/masterDetail'
 import actionsheet from './components/actionsheet'
 import tabs from './components/tabs'
+import button from './components/successbtn'
 
 // 布局组件
 import layout from 'layout/layout'
@@ -31,6 +32,7 @@ Vue.component('wuguanCard',  wuguanCard)
 Vue.component('masterDetail',  masterDetail)
 Vue.component('tabs',  tabs)
 Vue.component('actionsheet',  actionsheet)
+Vue.component('sbtn',  button)
 
 
 

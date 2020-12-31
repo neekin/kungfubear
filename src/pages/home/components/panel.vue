@@ -11,13 +11,21 @@
 		</div>
 		<div class="panel" v-else>
 			<div class="title">未登录</div>
+			<!-- #ifdef MP -->
 			<button class="login btn" open-type="getUserInfo" @getuserinfo="bindgetuserinfo">登录</button>
+			<!-- #endif -->
+			
+			<!-- #ifdef H5 -->
+			<button class="login btn"  @click="login">登录</button>
+			<!-- #endif -->
+			
 		</div>
 	</box>
 </template>
 
 <script>
 import { wxLoginWithCallback } from '@/utils/wxlogin';
+import storage from "@/storage";
 export default {
 	computed: {
 		is_login() {
@@ -36,6 +44,9 @@ export default {
 		return {};
 	},
 	methods: {
+		login(){
+			storage.setItem('Authorization',"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvcy54aW9uZ3hpYW93dS5jb21cL2FwaVwvdjFcL3VzZXJzXC9nZXR0b2tlbiIsImlhdCI6MTYwODAyMjg5NywiZXhwIjoxNjA4MDU4ODk3LCJuYmYiOjE2MDgwMjI4OTcsImp0aSI6InkwT0pYSEttamc3dnNrRHQiLCJzdWIiOiI1QjVBQ0VFRUNGNDJENjlEQ0MzMkNFRTk2QkFERDM0NSIsInBydiI6IjQxZGY4ODM0ZjFiOThmNzBlZmE2MGFhZWRlZjQyMzQxMzcwMDY5MGMiLCJyb2xlIjoidXNlciJ9.ilh_idg55N5Gj6h0CmWwEgUiJ-clP2qvFK3ixk68fFw")
+		},
 		yueke() {
 			//
 			uni.switchTab({
@@ -43,7 +54,9 @@ export default {
 			});
 		},
 		bindgetuserinfo(e) {
-			wxLoginWithCallback(e, null);
+			wxLoginWithCallback(e, (e)=>{
+				// this.$emit('input')
+			});
 		}
 	}
 };

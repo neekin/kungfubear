@@ -2,17 +2,17 @@
 	<div class="panel" :class='{"selected":selected}'>
 		<div class="leftbox">
 			<div class="title">
-				熊小武青少年武馆
+				{{item.branch_title_cn}}
 			</div>
 			<div class="juli">
 				距离您2.4KM
 			</div>
 			<div class="address">
-				上海市浦东新区杨浦镇康桥路175 号-2幢3层
+				{{item.branch_address_cn}}
 			</div>
 		</div>
 		<div class="rightbox">
-			<navigator :url="url" class='btn'>
+			<navigator :url="url+'?uid='+item.uid" class='btn'>
 					{{text}}
 			</navigator>
 		</div>
@@ -22,6 +22,10 @@
 <script>
 	export default {
 		props:{
+			item:{
+				type:Object,
+				default:()=>({})
+			},
 			selected:{
 				type:Boolean,
 				default:false

@@ -1,7 +1,7 @@
 <template>
 	<layout class="wuguan">
 		<tab mode="list" />
-		<navigator url="/pages/wuguan/wuguaninfo"><card /></navigator>
+		<navigator v-for="item in list" :url="'/pages/wuguan/wuguaninfo?uid=' + item.uid" :key='item.uid'><card :value='item' /></navigator>
 		<phoney-tab />
 	</layout>
 </template>
@@ -18,7 +18,7 @@ export default {
 		const page = this.$mp.page;
 		if (typeof page.getTabBar === 'function' && page.getTabBar()) {
 			page.getTabBar().setData({
-				selected: 1 //数字是当前页面在tabbar的索引,如我的查询页索引是2，因此这边为2，同理首页就为0，审批页面为1
+				selected: 1
 			});
 		}
 		this.init();
@@ -26,12 +26,14 @@ export default {
 	methods: {
 		init() {
 			this.$api.branch.branchlist().then(res => {
-				console.log(res);
+				this.list = res.data.list;
 			});
 		}
 	},
 	data() {
-		return {};
+		return {
+			list: []
+		};
 	}
 };
 </script>

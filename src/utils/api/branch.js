@@ -19,7 +19,7 @@ export default {
 		})
 	},
 	// 武馆详情
-	info(longitude, latitude, branch_id) {
+	info(branch_id,longitude=0, latitude=0) {
 		return get({
 			url: '/branch/info',
 			data: {

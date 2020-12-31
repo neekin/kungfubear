@@ -2,18 +2,18 @@
 <box>
 	<div class="card">
          <div class="title">
-			 熊小武青少年武馆
+			 {{value.branch_title_cn}}
 		 </div>
 		 <div class="info">
-			<img src="/static/images/wuguan/t.jpg" alt="" class='wuguanimg'>
+			<img :src="value.branch_thumb" alt="" class='wuguanimg'>
 			<div class="link">
 				 <div class="address">
 					<span class='iconfont iconlocation'></span>
-					<p>上海市浦东新区杨浦镇康桥路175号-康桥商务酒店大厦</p>
+					<p>{{value.branch_address_cn}}</p>
 				 </div>
 				 <div class="phone">
 					 <span class='iconfont iconPhone'></span>
-					 <p>020-123456789</p>
+					 <p>{{value.branch_tell}}</p>
 				 </div>
 				 <div class="dis">
 					 43KM
@@ -26,10 +26,10 @@
 
 <script>
 export default {
-	data() {
-		return {
-			
-		};
+	props:{
+		value:{
+			default:()=>({})
+		}
 	}
 }
 </script>
@@ -56,6 +56,7 @@ export default {
 	.wuguanimg{
 		width: 316upx;
 		height:158upx;
+		background-color: #f0f0f0;
 	}
 	.link{
 		position: relative;

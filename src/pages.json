@@ -163,6 +163,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/my/childpages/addAndEditChild",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 
 	"globalStyle": {

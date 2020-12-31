@@ -4,21 +4,21 @@
 		<banner />
 		<box>
 			<div class="info">
-				<div class="title">熊小武青少年武馆</div>
+				<div class="title">{{value.branch_title_cn}}</div>
 				<div class="address">
 					<span class="iconfont iconlocation"></span>
 					<p>
-						上海市浦东新区杨浦镇康桥路175号-康桥商务酒店大厦
+						{{value.branch_address_cn}}
 						<span class="dis">43KM</span>
 					</p>
 				</div>
 				<div class="phone">
 					<span class="iconfont iconPhone"></span>
-					<p>020-123456789</p>
+					<p>{{value.branch_tell}}</p>
 				</div>
 				<div class="time">
 					<span class="iconfont iconshop"></span>
-					<p>11:00-24:00</p>
+					<p>{{value.branch_start_time}}-{{value.branch_end_time}}</p>
 				</div>
 				<div class="btns">
 					<div class="btn" @click="goPage('/pages/gouke/gouke')">
@@ -46,8 +46,7 @@
 				<section class="text" v-if="actIndex === 0">
 					<div class="title">武馆介绍</div>
 					<div class="context">
-						文本，是指书面语言的表现形式，从文学角度说，通常是具有完整、系统含义（Message）的一个句子或多个句子的组合。一个文本可以是一个句子（Sentence）一个段落（Paragraph）或者一个篇章（Discourse）。广义“文本”：任何由书写所固定下来的任何话语。（利科尔）
-						狭义“文本”：由语言文字组成的文学实体，代指“作品”，相对于作者、世界构成一个独立、自足的系统。
+						{{value.branch_info_cn}}
 					</div>
 				</section>
 				<section class="list" v-if="actIndex === 1">
@@ -96,10 +95,16 @@ export default {
 	data() {
 		return {
 			actIndex: 1,
-			shifu: null
+			shifu: null,
+			value:null
 		};
 	},
 	methods: {
+		init(uid){
+			this.$api.branch.info(uid).then(res => {
+				this.value = res.data;
+			});
+		},
 		setShifu() {
 			this.shifu = {};
 		},
@@ -108,6 +113,9 @@ export default {
 				url: url
 			});
 		}
+	},
+	onLoad(params){
+		this.init(params.uid)
 	}
 };
 </script>
@@ -124,7 +132,7 @@ export default {
 	width: 686upx;
 	height: 252upx;
 	.title {
-		width: 288upx;
+		// width: 288upx;
 		height: 50upx;
 		font-size: 36upx;
 		font-family: PingFangSC, PingFangSC-Semibold;
