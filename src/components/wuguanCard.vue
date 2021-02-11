@@ -5,7 +5,7 @@
 				{{item.branch_title_cn}}
 			</div>
 			<div class="juli">
-				距离您2.4KM
+				距离您{{item.distance}}KM
 			</div>
 			<div class="address">
 				{{item.branch_address_cn}}

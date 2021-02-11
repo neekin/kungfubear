@@ -1,13 +1,14 @@
 <template>
  <div class='layout'>
 	 <v-header />
-		 <scroll-view class='content' scroll-y="true">
+		 <scroll-view class='content' :scroll-y="getScrollY" upper-threshold="0" bounces="false">
 			 <slot>content</slot>
-			 <language :lang='getLang'/>
+			 <language :lang='getLanguage'/>
 		 </scroll-view>
 		 <!-- #ifndef MP-WEIXIN -->
 		   <v-tabar v-if='getIsTabBarPage'/>
 		 <!-- #endif -->
+		 <Login />
  </div>
 </template>
 
@@ -15,16 +16,19 @@
 import VHeader from './components/header.vue';
 import VTabar from './components/tabar.vue';
 import language from './components/language.vue';
+import Login from '../components/login.vue'
 import { mapGetters  } from 'vuex'
 
 export default {
     computed:{
-		...mapGetters(['getIsTabBarPage','getLang'])
+		...mapGetters('Login',['getLanguage']),
+		...mapGetters('layout',['getScrollY']),
 	},
 	components:{
 		VHeader,
 		VTabar,
-		language
+		language,
+		Login
 	}
 }
 </script>

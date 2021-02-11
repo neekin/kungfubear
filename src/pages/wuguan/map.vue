@@ -3,9 +3,8 @@
 		<div class="content">
 			<tab mode='map'/>
 			<map name=""></map>
-			<map-card />
+			<map-card :item='item' />
 		</div>
-		<phoney-tab/>
 	</layout>
 </template>
 
@@ -16,6 +15,22 @@ export default {
 	components: {
 		tab,
 		mapCard
+	},
+	onShow(){
+		this.init()
+	},
+	methods: {
+		init() {
+			this.$api.branch.branchlist().then(res => {
+				this.list = res.data.list;
+			});
+		}
+	},
+	data() {
+		return {
+			list: [],
+			item:null
+		};
 	}
 };
 </script>

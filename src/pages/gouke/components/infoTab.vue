@@ -1,10 +1,6 @@
 <template>
 	<box>
 		<div class="infoTab">
-<!-- 			<div class="btn" :class="value === 0 ? 'active' : ''" " @click="actThis(0)><span>体适能</span></div>
-			<div class="btn" :class="value === 1 ? 'active' : ''" @click="actThis(1)"><span>功夫</span></div>
-			<div class="btn" :class="value === 2 ? 'active' : ''" @click="actThis(2)"><span>拳击</span></div>
-			<div class="btn" :class="value === 3 ? 'active' : ''" @click="actThis(3)"><span>私教课</span></div> -->
 			<div v-for='item in types' :key='item.uid' class='btn' :class='{active:value ===item.uid}' @click="actThis(item.uid)">
 				<span>{{item.cate_name_cn}}</span>
 			</div>

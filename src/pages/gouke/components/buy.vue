@@ -1,6 +1,6 @@
 <template>
 	<div class='buy' :class='{show:buy,hide:!buy}'>
-        <comfiremInfo  @close='close' :showComfiremInfo='showComfiremInfo' @showCouponsEvent='showCouponsEvent'/>
+        <comfiremInfo :goodsInfo='goodsInfo' @close='close' :showComfiremInfo='showComfiremInfo' @showCouponsEvent='showCouponsEvent' @pay='pay'/>
 		<coupons :showCoupons='showCoupons' @back='showCouponsEvent'/>
 	</div>
 </template>
@@ -29,6 +29,9 @@ export default {
 			this.showCoupons = status
 			this.showComfiremInfo = status
 			this.$emit('cleanGoods',null)
+		},
+		pay(){
+			this.$emit('success')
 		}
 	},
 	data(){

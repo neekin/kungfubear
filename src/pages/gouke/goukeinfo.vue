@@ -88,32 +88,79 @@
 				<div class="expire">有效期：2019-10-15至2019-12-30</div>
 			</div> -->
 		</box>
-		<buy :goodsInfo="goodsInfo" @cleanGoods="cleanGoods" />
+		<buy :goodsInfo="goodsInfo" @cleanGoods="cleanGoods" @success='success' />
 	</layout>
 </template>
 
 <script>
 import infoTab from './components/infoTab';
 import buy from './components/buy';
+import { mapActions} from 'vuex'
+// ...mapActions("search", ["setHistory", "setDestCity", "setCriteria"]),
 export default {
 	onLoad(params) {
-		console.log('获取到参数', params);
 		this.uid = params.uid;
 		this.init();
 	},
 	methods: {
+		...mapActions("wuguan", ["setWuGuan"]),
 		showBuyInfo(goods) {
-			// this.goodsInfo = goods;
-			this.$api.order.generateorder('993340C64082BDC381C30C7AA0621284').then(res=>console.log('下单',res))
+			console.log(goods)
+			this.goodsInfo = goods;
+			
+			// this.$api.order.generateorder('2371FE13633E1C2ECC94CF6543B99F8F').then(res=>console.log('下单',res))
+		},
+		success(){
+			this.$api.order.generateorder(this.goodsInfo.uid).then(res=>{
+			 if(res.status===1){
+				 this.goodsInfo = null
+				 uni.showToast({
+				 	title:"成功,跳转支付",
+					icon:"loading",
+					success:()=>{
+						this.$api.pay.pay(res.data.order_id).then(payres => {
+							uni.requestPayment({
+							    provider: 'wxpay',
+							    ...payres.data,
+							    success: function (res) {
+							          uni.redirectTo({
+							          	url:"/my/subpages/myorder"
+							          })
+							    },
+							    fail: function (err) {
+							        uni.showToast({
+							        	title:"支付失败",
+										success(){
+											uni.redirectTo({
+												url:"/my/subpages/myorder"
+											})
+										}
+							        })
+							    }
+							});
+						})
+					}
+				 })
+			 }
+			})
 		},
 		cleanGoods() {
 			this.goodsInfo = null;
 		},
 		init() {
             this.getlist(this.uid,this.selectType)
+			this.info()
+		},
+		info(){
+			this.$api.branch.info(this.uid).then(res=>{
+				// console.log('详情',res)
+				this.setWuGuan(res.data)
+			})
 		},
 		getlist(uid,type){
 			this.$api.course.list(uid, type).then(res => {
+				// this.$store.dispatch('setWuGuan',res.data)
+				// this.setWuGuan(res.data)
 				if(res.data.course_list && res.data.course_list.length> 0){
 					this.list = res.data.course_list 
 				}else{

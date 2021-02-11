@@ -5,7 +5,10 @@
 			"style": {
 				"navigationBarTitleText": "熊小武",
 				 "enablePullDownRefresh": false,
-				 "disableScroll": true
+				 "disableScroll": true,
+				 "app-plus":{
+					 "bounces":"none"
+				 }
 			}
 		}, {
 			"path": "pages/wuguan/wuguan",
@@ -16,7 +19,12 @@
 			"path": "pages/yueke/yueke",
 			"style": {
 				"disableScroll": true
-			}
+			},
+			"permission": {
+			    "scope.userLocation": {
+			      "desc": "将获取您的定位来得到离您最近的武馆信息"
+			    }
+			  }
 		}, {
 			"path": "pages/yueke/yuekeinfo",
 			"style": {
@@ -204,7 +212,12 @@
 				"pagePath": "pages/yueke/yueke",
 				"iconPath": "/static/images/tabar/clock.png",
 				"selecteIconPath": "/static/images/tabar/clock_act.gif",
-				"text": "约课"
+				"text": "约课",
+				"permission": {
+				    "scope.userLocation": {
+				      "desc": "你的位置信息将用于小程序位置接口的效果展示" // 高速公路行驶持续后台定位
+				    }
+				  }
 			},
 			{
 				"pagePath": "pages/gouke/gouke",

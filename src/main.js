@@ -49,7 +49,13 @@ Vue.mixin({
   }
 })
 
-Vue.prototype.$api = api
+Vue.prototype.$api = api;
+Vue.filter('times', (val)=>{
+	if(val && typeof val!=='undefined'){
+		 return val.slice(0,5)
+	}
+	return '00:00'
+})
 const app = new Vue({
     ...App,
 	store

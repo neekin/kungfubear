@@ -1,9 +1,6 @@
 <template>
 	<layout>
-		<order></order>
-		<order></order>
-		<order></order>
-		<order></order>
+		<order v-for='item in list' :key='item.order_goods_id' :item='item' />
 	</layout>
 </template>
 
@@ -14,7 +11,21 @@ export default {
 		order
 	},
 	data() {
-		return {};
+		return {
+			list:[]
+		};
+	},
+	onShow(){
+		this.init()
+	},
+	methods:{
+		init(){
+			this.getList();
+		},
+		async getList(){
+			const { data } = await this.$api.my.mylist()
+			this.list = data
+		}
 	}
 };
 </script>

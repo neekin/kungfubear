@@ -1,19 +1,19 @@
 <template>
 	<div>
 		<div class="info">
-			课时: 10 课程时间:1小时/课时
+			课时: {{item.branch_course_amount}} 课程时间:{{item.course_duration}}
 			<div class="money" :class="{ group: type == 'group' }">
 				<template v-if="type == 'general'">
 					<span>
 						<img src="/static/images/my/pricesymblo.svg" alt="" />
-						37
+						{{item.order_need_price}}
 					</span>
 				</template>
 				<template v-if="type == 'group'">
 					<span>
 						定金:
 						<img src="/static/images/my/pricesymblo.svg" alt="" />
-						37
+						{{item.order_need_price}}
 					</span>
 				</template>
 			</div>
@@ -22,9 +22,26 @@
 	</div>
 </template>
 
+<!-- branch_course_amount: 10
+		branch_course_title: "测试购买一般课程"
+		branch_id: "38B24BAA4935D3C3F9AA7B42C4009998"
+		branch_title: "test"
+		course_duration: 50
+		course_title: "测试第一节课"
+		order_create_time: "2021-01-26 16:16:11"
+		order_goods_id: "E847BA127AFB32C8CAB760A2C4988932"
+		order_need_price: "0.01"
+		order_pay_time: null
+		order_status: 0
+		order_type: 0
+		uid: "A402CCE099AE8CF67B12A4F0894DDAE1" -->
+
 <script>
 export default {
 	props: {
+		item:{
+			default:()=>({})
+		},
 		type: {
 			default: 'general'
 		}

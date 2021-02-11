@@ -9,22 +9,6 @@ export default {
 			url: '/children/list'
 		})
 	},
-	// 添加孩子
-	async childrenCreate(children) {
-		// 孩子姓名	children_name string
-		// 孩子生日 children_birthday
-		// 孩子特长 children_trait
-		// 孩子性别 children_sex  1男 2女
-		// 孩子联系人 数组children_contacts
-		// 爸爸 children_contacts.title
-		// 姓名 children_contacts.name
-		// 电话 children_contacts.phone
-		// 协议书id 协议书 数组 protocol_list
-		return post({
-			url: '/children/list',
-			data: children
-		})
-	},
 	// 修改家庭组名称
 	async rename(family_name) {
 		return post({
@@ -43,6 +27,32 @@ export default {
 			}
 		})
 	},
+	//获取预约课程列表
+    async make_list(children_id,type){
+		// /usercenter/course/make/list
+		return get({
+			url: '/usercenter/course/make/list',
+			data:{
+				children_id,
+				type
+			}
+		})
+	},
+	// 取消预约课程
+	// /usercenter/course/make/cancel
+	cancel(make_id){
+		return post({
+			url:'/usercenter/course/make/cancel',
+			data:{
+				make_id
+			}
+		})
+	},
+	mylist(){
+		return get({
+			url:"/usercenter/course/mylist",
+		})
+	}
 
 
 }

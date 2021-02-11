@@ -1,47 +1,54 @@
 <template>
 	<box>
 		<div class="menus">
-			<ul class="menu">
-				<li>
+			<div class="menu">
+				<navigator  @click='goPage("/pages/wuguan/wuguan")'>
 					<img src="/static/images/index/wuguan.svg" alt="" />
 					武馆
-				</li>
-				<li>
+				</navigator>
+
+				<navigator  @click='goPage("/pages/wuguan/wuguan")'>
 					<img src="/static/images/index/gonggao.svg" alt="" />
 					公告
-				</li>
-				<li>
+				</navigator>
+				<navigator @click='goPage("/pages/yueke/yueke")'>
 					<img src="/static/images/index/yueke.svg" alt="" />
 					约课
-				</li>
-				<li>
+				</navigator>
+				<navigator @click='goPage("/pages/gouke/gouke")'>
 					<img src="/static/images/index/gouke.svg" alt="" />
 					购课
-				</li>
-				<li>
+				</navigator>
+				<navigator url="/pages/my/subpages/fankui">
 					<img src="/static/images/index/fankui.svg" alt="" />
-					购课
-				</li>
-			</ul>
+					反馈
+				</navigator>
+			</div>
 			<div class="line"></div>
 			<div class="notice">
 				<span class="tag"><img src="/static/images/index/hotnews.png" alt="" /></span>
 				<span class="lie"></span>
-				<p>{{value.notice_title_cn}}</p>
+				<p>{{ value.notice_title_cn }}</p>
 			</div>
 		</div>
 	</box>
 </template>
 
 <script>
-	export default {
-		props:{
-			value:{
-				default:()=>({})
-			}
+export default {
+	methods:{
+		goPage(url){
+			uni.switchTab({
+				url
+			})
+		},
+	},
+	props: {
+		value: {
+			default: () => ({})
 		}
 	}
-	
+};
 </script>
 
 <style lang="scss" scoped>
@@ -59,7 +66,7 @@
 		list-style: none;
 		padding: 40upx 0 38upx 0;
 		justify-content: space-between;
-		li {
+		navigator {
 			height: 152upx;
 			display: flex;
 			flex-direction: column;

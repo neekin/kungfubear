@@ -5,7 +5,7 @@
 			 {{value.branch_title_cn}}
 		 </div>
 		 <div class="info">
-			<img :src="value.branch_thumb" alt="" class='wuguanimg'>
+			<img :src="value.branch_thumb" alt="" class='wuguanimg lietu'>
 			<div class="link">
 				 <div class="address">
 					<span class='iconfont iconlocation'></span>

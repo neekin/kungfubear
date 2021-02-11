@@ -1,28 +1,41 @@
 <template>
 	<div>
+<!-- 		branch_course_name: "课程"
+		branch_id: "38B24BAA4935D3C3F9AA7B42C4009998"
+		branch_name: "第二个的武馆"
+		course_end_time: "09:35:00"
+		course_start_date: "2021-01-31"
+		course_start_time: "09:00:00"
+		course_type: "1"
+		course_type_title: "大课"
+		make_id: "2FD64EDA299ABBD0DF21177B79DB1490"
+		make_status: 0
+		obj_id: "F1B464765DB1983F353923BAD7D4150B"
+		plan_type: 1
+		staff_title: "我是第二个教练" -->
 		<!-- 已预约 -->
-		<whitepanel>
+		<whitepanel v-for='item in list' :key='item.make_id'>
 			<div class="yueke">
-				<Title tag="大课">武馆大课程 扎马步练习啊手动阀
-				<span slot='status'>已预约</span>
+				<Title :tag="item.course_type_title">{{item.branch_course_name}}
+				<span slot='status'>{{item.make_status | status }}</span>
 				</Title>
 				<div class="time">
-					上课时间: 2020-12-01 &nbsp; &nbsp; &nbsp;10:00-11:00
+					上课时间: {{item.course_start_date}} &nbsp; &nbsp; &nbsp;{{item.course_start_time | times}}-{{item.course_end_time | times}}
 				</div>
 				<div class="shifu">
-				  师傅:张三丰 &nbsp; &nbsp; &nbsp; 课时:3
+				  师傅:{{item.staff_title}} &nbsp; &nbsp; &nbsp; 课时:3
 				</div>
 				<div class="time2">
-					预约时间: 2020-11-28 08:23:24
-					<button type="default">取消预约</button>
+					预约时间: {{2020-11-28}} 08:23:24
+					<button type="default" @click='cancel(item)' v-if='item.make_status===0'>取消预约</button>
 				</div>
-				<div class="wuguan">所属武馆: 武小熊青少年武馆
+				<div class="wuguan">所属武馆: {{item.branch_name}}
 				<img src="/static/images/my/down.svg" alt="" />
 				</div>
 			</div>
 		</whitepanel>
 		<!-- 已完成 -->
-		<whitepanel>
+<!-- 		<whitepanel>
 			<div class="yueke done">
 				<Title tag="私教课">武馆大课程 扎马步练习asdf adsasd
 				<span slot='status'>已完成</span>
@@ -35,15 +48,15 @@
 				</div>
 				<div class="time2">
 					预约时间: 2020-11-28 08:23:24
-					<!-- <button type="default">取消预约</button> -->
+					<button type="default">取消预约</button>
 				</div>
 				<div class="wuguan">上课武馆: 武小熊青少年武馆
 				<img src="/static/images/my/down.svg" alt="" />
 				</div>
 			</div>
-		</whitepanel>
+		</whitepanel> -->
 		<!-- 已取消 -->
-		<whitepanel>
+<!-- 		<whitepanel>
 			<div class="yueke">
 				<Title tag="私教课" cancel='true'>武馆大课程 扎马步练习asdf adsasd
 				<span slot='status'>已取消</span>
@@ -56,13 +69,13 @@
 				</div>
 				<div class="time2">
 					预约时间: 2020-11-28 08:23:24
-					<!-- <button type="default">取消预约</button> -->
+					<button type="default">取消预约</button>
 				</div>
 				<div class="wuguan">上课武馆: 武小熊青少年武馆
 				<img src="/static/images/my/down.svg" alt="" />
 				</div>
 			</div>
-		</whitepanel>
+		</whitepanel> -->
 	</div>
 
 
@@ -71,6 +84,35 @@
 <script>
 import Title from './title';
 export default {
+	filters:{
+		status(val){
+			switch(val){
+				case 0:
+				 return "已预约"
+				 case 1:
+				   return "已完成"
+				   case 2:
+				    return "已取消"
+			}
+		}
+	},
+	mounted(){
+		console.log(this.list)
+	},
+	methods:{
+		cancel(item){
+			this.$emit('setItem',item)
+		}
+	},
+	props:{
+		list:{
+			default:()=>[]
+		}
+	},
+	model:{
+		prop:"list",
+		event:'change'
+	},
 	components: {
 		Title
 	},

@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1500">
-			<swiper-item v-for="banner in value"><img :src="banner.banner_site" alt="" /></swiper-item>
+			<swiper-item v-for="banner in value" :key='banner.banner_index'><img :src="banner.banner_site" alt="" /></swiper-item>
 		</swiper>
 		<div class="bgmask" v-if='value && value.length>0'></div>
 	</div>

@@ -23,7 +23,7 @@ export default {
     if (module_name) {
       let val = this.getItem(module_name);
       if (val) return val[key];
-      else return {};
+      else return null;
     }
     return this.getStorage()[key];
   },

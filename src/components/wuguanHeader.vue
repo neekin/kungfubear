@@ -1,42 +1,44 @@
 <template>
 	<div class="header" :class="{ show: open, hide: !open }">
-		<div class="img"></div>
+		<div class="img lietu" >
+		<!-- <span class='iconfont iconlietu'></span> -->
+			<img :src="getWuGuan.branch_logo" alt="">
+		</div>
 		<div class="info">
 			<div class="row">
-				<div class="title">熊小武青少年武馆</div>
-				<div class="switchBtn">切换武馆</div>
+				<div class="title">{{getWuGuan.branch_title_cn}}</div>
+				<div class="switchBtn" @click='back'>切换武馆</div>
 			</div>
 			<div class="row">
 				<div class="subtitle" :class="{ open: open }" @click="open = !open">
 					更多武馆信息
 					<span class="iconfont iconxiaosanjiaodown"></span>
 				</div>
-				<div class="juli">距离您200米</div>
+				<div class="juli">距离您{{getWuGuan.distance  }}KM</div>
 			</div>
 		</div>
 		<div class="moreinfo" @touchmove.prevent @mousewheel.prevent>
 			<box class="box">
 				<div class="address">
 					<span class="iconfont iconlocation"></span>
-					上海市浦东新区杨浦镇康桥路175号-2幢3层
+					{{getWuGuan.branch_city_cn}}{{getWuGuan.branch_address_cn}}
 				</div>
 				<div class="address">
 					<span class="iconfont iconPhone"></span>
-					021-86543245
+					{{getWuGuan.branch_tell}}
 				</div>
 				<div class="address">
 					<span class="iconfont iconshop"></span>
-					11:00-24:00(周一至周日)
+					{{getWuGuan.branch_start_time | times}}-{{getWuGuan.branch_end_time | times}}(周一至周日)
 				</div>
 				<div class="smalltitle">武馆照片</div>
 				<movable-area style="width: auto;height: 150upx; margin-bottom: 32upx;">
 					<movable-view style="height:150upx; width:auto;" animation scroll-x direction="horizontal" inertia="true" out-of-bounds>
 						<div class="photos">
-							<div class="photo"></div>
-							<div class="photo"></div>
-							<div class="photo"></div>
-							<div class="photo"></div>
-							<div class="photo"></div>
+							<!-- getWuGuan.banner_list -->
+							<div class="photo lietu" v-for='(photo,index) in getWuGuan.banner_list'>
+								<img :src="photo.banner_url" alt="">
+							</div>
 						</div>
 					</movable-view>
 				</movable-area>
@@ -47,7 +49,18 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
+	methods:{
+		back(){
+			uni.navigateBack({
+				
+			})
+		}
+	},
+	computed: {
+		  ...mapGetters('wuguan',["getWuGuan"]),
+	},
 	data() {
 		return {
 			open: false
@@ -67,7 +80,11 @@ export default {
 		width: 100upx;
 		height: 100upx;
 		border-radius: 50%;
-		background-color: #f00;
+		// background-color: #f00;
+		img{
+			width: 100%;
+			height:100%;
+		}
 	}
 	.box {
 		background-color: #fff;
@@ -192,8 +209,6 @@ export default {
 	.photo {
 		width: 300upx;
 		height: 150upx;
-		background: rgba(255, 255, 255, 1);
-		background-color: #000;
 		box-shadow: 0px 4upx 16upx 0px rgba(248, 236, 223, 1);
 		border-radius: 16upx;
 		display: flex;

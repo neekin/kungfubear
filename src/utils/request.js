@@ -1,13 +1,14 @@
 const baseUrl = 'https://s.xiongxiaowu.com'
 const version = '/api/v1'
 const host = baseUrl + version
-import storage from "../storage";
+
+import store from '../store'
 export function request(url, method, data, header = {}, timeout = 5000) {
 	uni.showLoading({
 		title: '请求中' 
 	})
-	let Authorization = storage.getItem('Authorization') ? storage.getItem('Authorization') : ''
-	let language = storage.getItem('language') ? storage.getItem('language') : 'zh'
+	let Authorization =  store.getters['Login/getAuthorization']
+	let language =  store.getters['Login/getLanguage']
 	let headers = {
 		...header,
 		'Accept': 'application/vnd.xxw.v1+json',
@@ -29,6 +30,11 @@ export function request(url, method, data, header = {}, timeout = 5000) {
 			},
 			success: function(res) {
 				uni.hideLoading()
+				if(res.statusCode===403){
+					let routes = getCurrentPages(); // 获取当前打开过的页面路由数组
+					let curRoute = routes[routes.length - 1].route 
+					store.dispatch('Login/openLogin',curRoute)
+				}
 				resolve(res.data)
 			},
 			fail: function(res) {

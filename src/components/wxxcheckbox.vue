@@ -23,7 +23,7 @@
 		},
 		methods:{
 			clickHandler(){
-				this.$emit('change',!this.checked)
+				this.$emit('change',this.value)
 			}
 		}
 		

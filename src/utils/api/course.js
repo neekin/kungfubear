@@ -1,4 +1,4 @@
-import { get } from '../request'
+import { get , post} from '../request'
 export default {
 	// 获取课程类型
 	typelist() {
@@ -15,6 +15,15 @@ export default {
 				type_id,
 				longitude,
 				latitude
+			}
+		})
+	},
+	// 预约课程
+	make_course(params){
+		return post({
+			url: '/make/course',
+			data:{
+				...params
 			}
 		})
 	}

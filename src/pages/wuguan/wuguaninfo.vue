@@ -4,21 +4,21 @@
 		<banner />
 		<box>
 			<div class="info">
-				<div class="title">{{value.branch_title_cn}}</div>
+				<div class="title">{{getWuGuan.branch_title_cn}}</div>
 				<div class="address">
 					<span class="iconfont iconlocation"></span>
 					<p>
-						{{value.branch_address_cn}}
+						{{getWuGuan.branch_address_cn}}
 						<span class="dis">43KM</span>
 					</p>
 				</div>
 				<div class="phone">
 					<span class="iconfont iconPhone"></span>
-					<p>{{value.branch_tell}}</p>
+					<p>{{getWuGuan.branch_tell}}</p>
 				</div>
 				<div class="time">
 					<span class="iconfont iconshop"></span>
-					<p>{{value.branch_start_time}}-{{value.branch_end_time}}</p>
+					<p>{{getWuGuan.branch_start_time}}-{{getWuGuan.branch_end_time}}</p>
 				</div>
 				<div class="btns">
 					<div class="btn" @click="goPage('/pages/gouke/gouke')">
@@ -50,7 +50,7 @@
 					</div>
 				</section>
 				<section class="list" v-if="actIndex === 1">
-					<div class="item" @click="setShifu">
+					<!-- <div class="item" @click="setShifu">
 						<img src="/static/images/wuguan/李小龙.jpg" alt="" />
 						<div class="name">李小龙</div>
 					</div>
@@ -69,6 +69,10 @@
 					<div class="item" @click="setShifu">
 						<img src="/static/images/wuguan/李小龙.jpg" alt="" />
 						<div class="name">李小龙</div>
+					</div> -->
+					<div class='item' v-for='item in getWuGuan.master_list' :key='item.branch_staff_id' @click="setShifu(item)">
+						<img :src="item.staff_avatar" alt="">
+						<div class='name'>{{item.staff_name_cn}}</div>
 					</div>
 				</section>
 				<section class="kefu" v-if="actIndex === 2">
@@ -86,27 +90,33 @@
 <script>
 import banner from './components/banner.vue';
 import infoTab from './components/infoTab.vue';
-
+import { mapGetters ,mapActions} from 'vuex'
 export default {
+	computed: {
+		  ...mapGetters('wuguan',["getWuGuan"]),
+	},
 	components: {
 		banner,
 		infoTab
 	},
 	data() {
 		return {
-			actIndex: 1,
+			actIndex: 0,
 			shifu: null,
 			value:null
 		};
 	},
 	methods: {
+		...mapActions('wuguan',["setWuGuan"]),
 		init(uid){
 			this.$api.branch.info(uid).then(res => {
-				this.value = res.data;
+				// this.value = res.data;
+				this.setWuGuan(res.data)
 			});
 		},
-		setShifu() {
-			this.shifu = {};
+		setShifu(item) {
+			console.log(item)
+			this.shifu = item;
 		},
 		goPage(url) {
 			uni.switchTab({

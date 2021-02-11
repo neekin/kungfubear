@@ -2,14 +2,21 @@ import Vue from "vue";
 import Vuex from "vuex";
 import storage from "../storage";
 import home from './home'
+import wuguan from './wuguan'
+import layout from './layout'
+import Appointment from './appointment'
+import Login from './login'
 
 Vue.use(Vuex);
 export default new Vuex.Store({
 	modules: {
-	    home
+	    home,
+		wuguan,
+		layout,
+		Appointment,
+		Login
 	  },
 	state:{
-		Authorization: storage.getItem('Authorization') ? storage.getItem('Authorization') : '',
 		currentPage:'',
 		lang:'en',
 		tabBar:[
@@ -31,14 +38,10 @@ export default new Vuex.Store({
 	actions: {
 	  setCurrentPage({ commit }, page) {
 	    commit("setCurrentPage", page);
-	  },
-	  setLanguage({ commit }, lang) {
-	    commit("setLanguage", lang);
 	  }
 	},
 	getters: {
-	  getIsTabBarPage: state => state.tabBar.indexOf(state.currentPage)> -1,
-	  getLang : state => state.lang
+	  getIsTabBarPage: state => state.tabBar.indexOf(state.currentPage)> -1
 	}
   // state: {
   //   user_id: storage.getItem("user_id") || ""

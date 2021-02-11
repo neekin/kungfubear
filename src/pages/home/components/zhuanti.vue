@@ -21,7 +21,7 @@
 								
 							</div>
 						</div>
-						<div class='small'>
+						<div class='small' @click='goYuKe'>
 							<div class="title">
 								<img src="/static/images/index/beta.png" alt="">
 								体验课
@@ -36,6 +36,13 @@
 
 <script>
 	export default {
+		methods:{
+			goYuKe(){
+				uni.switchTab({
+					url:'/pages/yueke/yueke'
+				})
+			}
+		},
 		data() {
 			return {
 				

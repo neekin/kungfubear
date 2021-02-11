@@ -1,8 +1,8 @@
 <template>
 	<div class="wuguaninfo" :class="{ open: value }">
-		<p>所属武馆: 武小熊青少年武馆</p>
-		<p>下单时间:2019-12-31 16:44:32</p>
-		<p>订单号:1234567890123</p>
+		<p>所属武馆: {{item.branch_title}}</p>
+		<p>下单时间:{{item.order_create_time}}</p>
+		<p>订单号:{{item.uid}}</p>
 		<span class="more" @click="open" ><img src="/static/images/my/down.svg" alt="" /></span>
 	</div>
 </template>
@@ -10,13 +10,18 @@
 <script>
 	export default {
          props:{
-			 value:{
-				 default:false
+			 item:{
+				 default:()=>({})
+			 }
+		 },
+		 data(){
+			 return{
+				 value:false
 			 }
 		 },
 		 methods:{
 			 open(){
-				 this.$emit('input',!this.value)
+				this.value = !this.value
 			 }
 		 }
 	};

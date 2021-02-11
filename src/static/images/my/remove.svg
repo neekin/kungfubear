@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>删除组员</title>
+    <desc>Created with Sketch.</desc>
+    <g id="熊小武" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="家庭组-组长页" transform="translate(-160.000000, -204.000000)" stroke="#FF9022">
+            <g id="删除组员" transform="translate(160.000000, 204.000000)">
+                <circle id="椭圆形" stroke-width="1.5" fill="#FFFFFF" cx="10" cy="10" r="9.25"></circle>
+                <g id="编组-10" transform="translate(9.792893, 10.207107) rotate(-315.000000) translate(-9.792893, -10.207107) translate(4.292893, 4.707107)" fill="#FF9022">
+                    <path d="M2.58538962,2.41421356 L2.51471863,2.48488456 L8.02983407,8 L8.10050506,7.929329 L2.58538962,2.41421356 Z" id="矩形" transform="translate(5.307612, 5.207107) rotate(315.000000) translate(-5.307612, -5.207107) "></path>
+                    <path d="M8.10405845,2.40355339 L2.50405845,8.00355339 C2.50602094,8.00159091 2.50920275,8.00159091 2.51116524,8.00355339 C2.51312772,8.00551587 2.51312772,8.00869769 2.51116524,8.01066017 L8.11116524,2.41066017 C8.10920275,2.41262266 8.10602094,2.41262266 8.10405845,2.41066017 C8.10209597,2.40869769 8.10209597,2.40551587 8.10405845,2.40355339 Z" id="矩形" transform="translate(5.307612, 5.207107) rotate(315.000000) translate(-5.307612, -5.207107) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

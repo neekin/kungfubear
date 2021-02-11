@@ -3,7 +3,15 @@
 		<div class="mypages">
 			<div class="header">
 				<box class="userbox">
-					<div class="usersection">
+					<div class="usersection" v-if="getUserInfo">
+						<div class="headerimg"><img :src="getUserInfo.avatarUrl" alt="" /></div>
+						<div class="userinfo">
+							<div class="nickname">{{ getUserInfo.nickName }}</div>
+							<div class="usernum">会员号:0</div>
+						</div>
+						<div class="setting"><img src="/static/images/my/setting.svg" alt="" /></div>
+					</div>
+					<div class="usersection" v-else>
 						<div class="headerimg"></div>
 						<div class="userinfo">
 							<div class="nickname">未登录</div>
@@ -27,7 +35,8 @@
 								<img src="/static/images/my/yueke.svg" alt="" />
 								约课记录
 							</navigator>
-							<navigator url="/pages/my/subpages/fankui" class="item">
+							<navigator class="item" @click="noOpen">
+								<!-- url="/pages/my/subpages/fankui" -->
 								<img src="/static/images/my/fankui.svg" alt="" />
 								课后反馈
 							</navigator>
@@ -35,39 +44,23 @@
 					</div>
 				</box>
 			</div>
+			<div class="qiandao">上课签到</div>
 			<scroll-view class="my-content" scroll-y="true">
 				<box class="mychild">
 					<div class="title">
 						我的孩子
-						<navigator class="addchild" url="childpages/addchild">	
-						   <img src="/static/images/my/addchild.svg" alt="" />
+						<navigator class="addchild" url="childpages/addAndEditChild?type=add">
+							<img src="/static/images/my/addchild.svg" alt="" />
 							添加孩子
 						</navigator>
-						<div class="qiandao">上课签到</div>
 					</div>
 					<ul class="children">
-						<li>
+						<li v-for="child in children" :key="child.children_id">
 							<panel>
 								<div class="childsection">
 									<img src="/static/images/my/girl.svg" alt="" class="gender" />
 									<div class="childinfo">
-										张小花
-										<div class="info">
-											<span>10岁</span>
-											<span>30kg</span>
-											<span>142cm</span>
-										</div>
-									</div>
-									<div class="bianji"><img src="/static/images/my/bianji.svg" alt="" /></div>
-								</div>
-							</panel>
-						</li>
-						<li>
-							<panel>
-								<div class="childsection">
-									<img src="/static/images/my/girl.svg" alt="" class="gender" />
-									<div class="childinfo">
-										张小花
+										{{ child.children_name }}
 										<div class="info">
 											<span>10岁</span>
 											<span>30kg</span>
@@ -83,42 +76,44 @@
 				<box>
 					<div class="mainmemus">
 						<panel>
-							<div class="item">
+							<div class="item" @click="noOpen">
 								<img src="/static/images/my/tuiguang.svg" alt="" />
 								推广
 							</div>
-							<div class="item">
+							<div class="item" @click="noOpen">
 								<img src="/static/images/my/youhuiquan.svg" alt="" />
 								优惠券
 							</div>
 							<div class="item">
-								<img src="/static/images/my/jiatingzu.svg" alt="" />
-								家庭组
+								<navigator url="/pages/my/submainpages/jiatingzu">
+									<img src="/static/images/my/jiatingzu.svg" alt="" />
+									家庭组
+								</navigator>
 							</div>
-							<div class="item">
+							<div class="item" @click="noOpen">
 								<img src="/static/images/my/kefu.svg" alt="" />
 								联系我们
 							</div>
-							<div class="item">
+							<div class="item" @click="noOpen">
 								<img src="/static/images/my/guanyu.svg" alt="" />
 								关于我们
 							</div>
-							<div class="item">
+							<div class="item" @click="noOpen">
 								<img src="/static/images/my/tousu.svg" alt="" />
 								投诉建议
 							</div>
-							<div class="item">
+							<div class="item" @click="noOpen">
 								<img src="/static/images/my/kaoji.svg" alt="" />
 								考级记录
 							</div>
-							<div class="item">
+							<div class="item" @click="noOpen">
 								<img src="/static/images/my/jingcai.svg" alt="" />
 								精彩瞬间
 							</div>
-							<div class="item">
+							<!-- 			<div class="item" @click="noOpen">
 								<img src="/static/images/my/yuangong.svg" alt="" />
 								我是员工
-							</div>
+							</div> -->
 						</panel>
 					</div>
 				</box>
@@ -129,9 +124,37 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
 export default {
+	computed: {
+		...mapGetters('Login', ['getUserInfo'])
+	},
 	data() {
-		return {};
+		return {
+			children: []
+		};
+	},
+	methods: {
+		...mapActions('layout', ['setScrollY']),
+		noOpen(e) {
+			e.preventDefault();
+			uni.showToast({
+				title: '暂未开放',
+				icon: 'none'
+			});
+		},
+		init() {
+			this.getChildren();
+			this.setScrollY(false);
+		},
+		getChildren() {
+			console.log('12213');
+			this.$api.my.childrenList().then(res => {
+				console.log('返回数据', res);
+				this.children = res.data;
+				console.log(res.data);
+			});
+		}
 	},
 	onShow() {
 		const page = this.$mp.page;
@@ -140,6 +163,10 @@ export default {
 				selected: 4 //数字是当前页面在tabbar的索引,如我的查询页索引是2，因此这边为2，同理首页就为0，审批页面为1
 			});
 		}
+		this.init();
+	},
+	onHide() {
+		this.setScrollY(true);
 	}
 };
 </script>
@@ -175,6 +202,12 @@ export default {
 			font-weight: 400;
 			color: rgba(0, 0, 0, 0.7);
 			position: relative;
+			navigator {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+			}
 			img {
 				width: 40rpx;
 				height: 40rpx;
@@ -266,11 +299,11 @@ export default {
 					top: 0;
 				}
 			}
-			&:nth-of-type(9) {
+			&:nth-of-type(8) {
 				&::before {
 					width: 2rpx;
 					height: 140rpx;
-					left: 0;
+					right: -2rpx;
 					top: 0;
 				}
 			}
@@ -350,23 +383,6 @@ export default {
 			display: flex;
 			align-items: center;
 			position: relative;
-			.qiandao {
-				width: 180rpx;
-				height: 64rpx;
-				background: #ff8300;
-				border-radius: 104rpx 0rpx 0rpx 104rpx;
-				box-shadow: 0rpx 4rpx 14rpx 0rpx #ff5a07;
-				position: fixed;
-				right: 0;
-				top: 480rpx;
-				font-size: 32rpx;
-				font-family: PingFangSC, PingFangSC-Semibold;
-				font-weight: 600;
-				text-align: left;
-				color: #ffffff;
-				line-height: 64rpx;
-				text-indent: 26rpx;
-			}
 			.addchild {
 				font-size: 28rpx;
 				font-family: PingFangSC, PingFangSC-Regular;
@@ -430,6 +446,11 @@ export default {
 			height: 98rpx;
 			background-color: #000;
 			border-radius: 50%;
+			overflow: hidden;
+			img {
+				height: 100%;
+				width: 100%;
+			}
 		}
 		.setting {
 			width: 46rpx;
@@ -463,5 +484,24 @@ export default {
 			}
 		}
 	}
+}
+
+.qiandao {
+	width: 180rpx;
+	height: 64rpx;
+	background: #ff8300;
+	border-radius: 104rpx 0rpx 0rpx 104rpx;
+	box-shadow: 0rpx 4rpx 14rpx 0rpx #ff5a07;
+	position: fixed;
+	right: 0;
+	top: 520rpx;
+	font-size: 32rpx;
+	font-family: PingFangSC, PingFangSC-Semibold;
+	font-weight: 600;
+	text-align: left;
+	color: #ffffff;
+	line-height: 64rpx;
+	text-indent: 26rpx;
+	z-index: 3;
 }
 </style>

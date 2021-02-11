@@ -1,5 +1,5 @@
 <template>
-	<box class='map-box'>
+	<box class='map-box' v-show="show">
 		<div class="map-card">
 			<div class="title">
 						 熊小武青少年武馆
@@ -30,10 +30,16 @@
 
 <script>
 	export default {
+		props:['item'],
 		data() {
 			return {
 				
 			};
+		},
+		computed:{
+			show(){
+				return this.item!=null
+			}
 		}
 	}
 </script>

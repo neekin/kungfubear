@@ -1,7 +1,16 @@
 <template>
 	<box>
 		<div class="panel" v-if="is_login">
-			<template v-if="make_course"></template>
+			<template v-if="make_course && make_course.length>0">
+				<swiper :indicator-dots="false" :autoplay="true" :interval="3000" :duration="1000">
+					<swiper-item v-for='(item,index) in make_course' :key='index'>
+						<div class="title">课程安排</div>
+						<br />
+						<div class="info1">{{item.children_name}} 有一节 <span> {{item.branch_course_title}}</span></div>
+						<div class="info">上课时间：{{item.course_start_date}} {{item.course_start_time | times}}-{{item.course_end_time | times}}</div>
+					</swiper-item>
+				</swiper>
+			</template>
 			<template v-else>
 				<div class="title">课程安排</div>
 				<br />
@@ -12,11 +21,12 @@
 		<div class="panel" v-else>
 			<div class="title">未登录</div>
 			<!-- #ifdef MP -->
-			<button class="login btn" open-type="getUserInfo" @getuserinfo="bindgetuserinfo">登录</button>
+		<!-- 	<button class="login btn" open-type="getUserInfo" @getuserinfo="bindgetuserinfo">登录</button> -->
+			<button class="login btn"  @click="()=>{ openLogin('pages/home/index') }">登录</button>
 			<!-- #endif -->
 			
 			<!-- #ifdef H5 -->
-			<button class="login btn"  @click="login">登录</button>
+			<button class="login btn"  @click="openLogin">登录</button>
 			<!-- #endif -->
 			
 		</div>
@@ -24,15 +34,18 @@
 </template>
 
 <script>
-import { wxLoginWithCallback } from '@/utils/wxlogin';
 import storage from "@/storage";
+import {mapActions} from 'vuex'
 export default {
 	computed: {
 		is_login() {
 			return this.value.is_login > 0;
 		},
 		make_course() {
-			return this.value.make_course;
+			if(this.value.make_course && Array.isArray(this.value.make_course)){
+				return this.value.make_coures
+			}
+			return [this.value.make_course];
 		}
 	},
 	props: {
@@ -44,18 +57,17 @@ export default {
 		return {};
 	},
 	methods: {
-		login(){
-			storage.setItem('Authorization',"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvcy54aW9uZ3hpYW93dS5jb21cL2FwaVwvdjFcL3VzZXJzXC9nZXR0b2tlbiIsImlhdCI6MTYwODAyMjg5NywiZXhwIjoxNjA4MDU4ODk3LCJuYmYiOjE2MDgwMjI4OTcsImp0aSI6InkwT0pYSEttamc3dnNrRHQiLCJzdWIiOiI1QjVBQ0VFRUNGNDJENjlEQ0MzMkNFRTk2QkFERDM0NSIsInBydiI6IjQxZGY4ODM0ZjFiOThmNzBlZmE2MGFhZWRlZjQyMzQxMzcwMDY5MGMiLCJyb2xlIjoidXNlciJ9.ilh_idg55N5Gj6h0CmWwEgUiJ-clP2qvFK3ixk68fFw")
-		},
+		...mapActions('Login',['openLogin']),
+		// login(){
+		// 	this.openLogin()
+		// 	// this.$store.dispatch('Login/openLogin',true)
+		// 	// console.log(this.$store)
+		// 	// storage.setItem('Authorization',"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvcy54aW9uZ3hpYW93dS5jb21cL2FwaVwvdjFcL3VzZXJzXC9nZXR0b2tlbiIsImlhdCI6MTYwODAyMjg5NywiZXhwIjoxNjA4MDU4ODk3LCJuYmYiOjE2MDgwMjI4OTcsImp0aSI6InkwT0pYSEttamc3dnNrRHQiLCJzdWIiOiI1QjVBQ0VFRUNGNDJENjlEQ0MzMkNFRTk2QkFERDM0NSIsInBydiI6IjQxZGY4ODM0ZjFiOThmNzBlZmE2MGFhZWRlZjQyMzQxMzcwMDY5MGMiLCJyb2xlIjoidXNlciJ9.ilh_idg55N5Gj6h0CmWwEgUiJ-clP2qvFK3ixk68fFw")
+		// },
 		yueke() {
 			//
 			uni.switchTab({
 				url: '/pages/yueke/yueke'
-			});
-		},
-		bindgetuserinfo(e) {
-			wxLoginWithCallback(e, (e)=>{
-				// this.$emit('input')
 			});
 		}
 	}
@@ -73,6 +85,9 @@ export default {
 	transform: translateY(-100upx);
 	padding: 22upx 32upx;
 	box-sizing: border-box;
+	swiper{
+		height:100%;
+	}
 	.info {
 		opacity: 0.4;
 		font-size: 24rpx;
@@ -82,6 +97,19 @@ export default {
 		line-height: 34rpx;
 		letter-spacing: 0rpx;
 		margin-top: 24rpx;
+	}
+	.info1{
+		opacity: 1;
+		font-size: 32rpx;
+		font-family: PingFangSC, PingFangSC-Regular;
+		font-weight: 400;
+		text-align: left;
+		color: #000000;
+		line-height: 44rpx;
+		padding-top: 14rpx;
+		span{
+			color:rgba(255,103,0,1);
+		}
 	}
 	.title {
 		font-size: 40rpx;

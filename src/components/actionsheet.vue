@@ -1,19 +1,23 @@
 <template>
-	<div class="actionsheet" v-if='show' @click='hideac'>
+	<div class="actionsheet" v-if='show' @click='cancel'>
 		<div
-			class="model"
+			class="mask"
 			@click.stop="
 				event => {
-					event.stopImmediatePropagation();
+					event.stopPropagation();
 				}">
-			<div class="title">
+			<div class="title" v-if='!hideTitle'>
 				<slot name="title">{{ title }}</slot>
 			</div>
 			<div class="content"><slot></slot></div>
-			<div class="footer">
+			<div class="footer" v-if='!hideButtons'>
 				<slot name="footer">
-					<button v-if="!hideCancelButton" @click='hideac'>{{ cancelButtonText }}</button>
-					<button v-if="!hideComfirmButton" class="comfirm">{{ comfirmButtonText }}</button>
+					<div class="btn" v-if="!hideCancelButton">
+						<button  @click='cancel'>{{ cancelButtonText }}</button>
+					</div>
+					<div class="btn" v-if="!hideComfirmButton">
+						<button  class="comfirm" @click="success" >{{ comfirmButtonText }}</button>
+					</div>
 				</slot>
 			</div>
 		</div>
@@ -21,17 +25,29 @@
 </template>
 <script>
 export default {
+	model:{
+		event:'close',
+		prop:'show'
+	},
 	data(){
 		return {
-			show:false
 		}
 	},
 	methods:{
-		hideac(){
-			this.show = false
+		cancel(){
+			this.$emit('close',false)
+			if(typeof this.cancelButtonCallback ==='function')
+		     	this.cancelButtonCallback.call()
+		},
+		success(){
+				this.$emit('success')
 		}
 	},
 	props: {
+		show:{
+			type:Boolean,
+			default: false
+		},
 		title: {
 			type: String,
 			default: '标题'
@@ -44,11 +60,11 @@ export default {
 		},
 		cancelButtonCallback: {
 			type: Function,
-			default: null
+			default:  ()=>{}
 		},
 		comfirmButtonCallback: {
 			type: Function,
-			default: null
+			default: ()=>{}
 		},
 		hideCancelButton: {
 			default: false
@@ -58,6 +74,12 @@ export default {
 		},
 		hideClose: {
 			default: false
+		},
+		hideButtons:{
+			default: false
+		},
+		hideTitle:{
+			default:false
 		}
 	}
 };
@@ -71,7 +93,7 @@ export default {
 	top: 0;
 	left: 0;
 	z-index: 999;
-	.model {
+	.mask {
 		height: auto;
 		width: 100vw;
 		background-color: #ffffff;
@@ -79,7 +101,6 @@ export default {
 		position: absolute;
 		bottom: 0;
 		box-sizing: border-box;
-		padding: 0 32rpx;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -101,25 +122,31 @@ export default {
 			display: flex;
 			padding: 48rpx 0;
 			justify-content: space-between;
-			button {
-				width: 328rpx;
-				height: 90rpx;
-				background: #cccccc;
-				border-radius: 44rpx;
-				box-shadow: 0rpx 4rpx 8rpx 0rpx rgba(0, 0, 0, 0.29);
-				font-size: 32rpx;
-				font-family: PingFangSC, PingFangSC-Semibold;
-				font-weight: 600;
-				color: #ffffff;
-				line-height: 90rpx;
-				&.comfirm {
-					background: #ff8300;
-					box-shadow: 0rpx 4rpx 8rpx 0rpx #ff9022;
-				}
-				&::after {
-					display: none;
+			.btn{
+				padding: 0 32rpx;
+				flex:1;
+				button {
+					width: 100%;
+					height: 90rpx;
+					background: #cccccc;
+					border-radius: 44rpx;
+					box-shadow: 0rpx 4rpx 8rpx 0rpx rgba(0, 0, 0, 0.29);
+					font-size: 32rpx;
+					font-family: PingFangSC, PingFangSC-Semibold;
+					font-weight: 600;
+					color: #ffffff;
+					line-height: 90rpx;
+					justify-content: space-between;
+					&.comfirm {
+						background: #ff8300;
+						box-shadow: 0rpx 4rpx 8rpx 0rpx #ff9022;
+					}
+					&::after {
+						display: none;
+					}
 				}
 			}
+
 		}
 	}
 }

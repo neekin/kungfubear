@@ -1,12 +1,14 @@
 <template>
-	<div class='success'>
-		<button>
+	<div  class='success'>
+		<button >
 			<slot>按钮</slot>
 		</button>
-	</div>
+    </div>
 </template>
 
 <script>
+export default{
+}
 </script>
 
 <style scoped lang='scss'>

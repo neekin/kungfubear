@@ -2,13 +2,13 @@
 
 		<whitepanel>
 			<div class="keshi">
-				<keshi-title tag="私教课">武馆大课程 扎马步练习asdfsasdasdf</keshi-title>
+				<keshi-title :tag="item.amount_type">{{item.branch_course_name}}</keshi-title>
 				<div class="info">
-					<span>总计课时:10</span>
-					<span>剩余课时:5</span>
-					<span>冻结课时:5</span>
+					<span>总计课时:{{item.amount}}</span>
+					<span>剩余课时:{{item.un_amount}}</span>
+					<span>冻结课时:{{item.lock_amount}}</span>
 				</div>
-				<div class="wuguan">所属武馆: 武小熊青少年武馆</div>
+				<div class="wuguan">{{item.branch_name}}</div>
 			</div>
 		</whitepanel>
 
@@ -20,8 +20,10 @@ export default {
 	components: {
 		keshiTitle
 	},
-	data() {
-		return {};
+	props:{
+		item:{
+			default:()=>({})
+		}
 	}
 };
 </script>

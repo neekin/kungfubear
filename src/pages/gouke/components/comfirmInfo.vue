@@ -4,37 +4,37 @@
 			确认订单
 			<backbtn @click.native="closeThis" />
 		</div>
-		<div class="goodsname">10-15岁体适一级体能训练课</div>
+		<div class="goodsname">{{goodsInfo.branch_course_name_cn}}</div>
 		<div class="goodsinfo">
 			<div class="specinfo">
 				<div class="specname">课时</div>
-				<div class="info">10课时</div>
+				<div class="info">{{goodsInfo.branch_course_amount}}课时</div>
 			</div>
 			<div class="specinfo">
 				<div class="specname">课程时间</div>
-				<div class="info">30分钟/课时</div>
+				<div class="info">{{goodsInfo.course_duration}}分钟/课时</div>
 			</div>
 			<div class="specinfo">
 				<div class="specname">所属武馆</div>
-				<div class="info">熊少武青少年武馆</div>
+				<div class="info">{{getWuGuan.branch_title_cn}}</div>
 			</div>
-			<div class="specinfo" @click="showCouponsEvent">
+			<!-- <div class="specinfo" @click="showCouponsEvent">
 				<div class="specname">优惠券</div>
 				<div class="info">-10</div>
-			</div>
+			</div> -->
 		</div>
 		<div class="buybtns">
 			<div class="count">
 				<div class="total">
 					合计:
-					<span>￥298</span>
+					<span>￥{{goodsInfo.branch_course_price}}</span>
 				</div>
-				<div class="coupon">
+			<!-- 	<div class="coupon">
 					优惠:
 					<span>￥10</span>
-				</div>
+				</div> -->
 			</div>
-			<div class="buybtn">
+			<div class="buybtn" @click='comfirm'>
 				<img src="/static/images/wuguan/confirm.png" alt="" />
 				<span>确定支付</span>
 			</div>
@@ -42,17 +42,24 @@
 	</div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 import backbtn from './backbtn';
 
 export default {
-	props: ['showComfiremInfo'],
+	props: ['showComfiremInfo','goodsInfo'],
 	methods: {
 		closeThis() {
 			this.$emit('close', false);
 		},
 		showCouponsEvent() {
 			this.$emit('showCouponsEvent', true);
+		},
+		comfirm(){
+			this.$emit('pay')
 		}
+	},
+	computed: {
+		  ...mapGetters('wuguan',["getWuGuan"]),
 	},
 	components: {
 		backbtn

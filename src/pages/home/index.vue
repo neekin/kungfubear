@@ -4,7 +4,6 @@
 		<Carousel v-model="homeData.banner_list" />
 		<panel v-model="homeData" />
 		<menus v-model="homeData.new_notice" />
-
 		<group />
 		<zhuanti />
 		<banner />

@@ -18,6 +18,7 @@ export default {
 <style lang="scss">
 /*每个页面公共css */
 @import './commom/style/icons.css';
+@import './commom/style/lietu.css';
 .bigtitle {
 	font-size: 40upx;
 	font-family: PingFangSC, PingFangSC-Semibold;
