@@ -12,12 +12,9 @@ const Login = {
 		setLoginShow(state, data) {
 			state.loginShow = data
 			if (!state.loginShow && state.currentPage && state.currentPage !='') {
-				console.log('当前页面',state.currentPage)
 				wx.reLaunch({
 					url:"/"+state.currentPage
 				})
-			
-				// console.log('获取当前也买你',uni.getCurrentPages)
 			}
 		},
 		setCurrentPage(state, data) {

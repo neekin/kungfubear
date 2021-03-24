@@ -148,7 +148,6 @@ export default {
 			this.setScrollY(false);
 		},
 		getChildren() {
-			console.log('12213');
 			this.$api.my.childrenList().then(res => {
 				console.log('返回数据', res);
 				this.children = res.data;

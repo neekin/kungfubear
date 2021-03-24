@@ -18,7 +18,7 @@ const home = {
 			commit
 		}) {
 			const res = await homeApi.Index()
-			console.log('请求成功',res)
+		
 			commit(SET_HOME_DATA, res)
 		}
 	},
